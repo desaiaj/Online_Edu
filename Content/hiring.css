@@ -1,0 +1,891 @@
+.row *, .gallery * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+    .row *:before, .gallery *:before, .row *:after, .gallery *:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+.bg-area {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+    .bg-area:before, .bg-area:after {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+}
+
+.col-md-12 {
+    width: 100%;
+}
+
+.col-md-11 {
+    width: 91.66666667%;
+}
+
+.col-md-10 {
+    width: 83.33333333%;
+}
+
+.col-md-9 {
+    width: 75%;
+}
+
+.col-md-8 {
+    width: 66.66666667%;
+}
+
+.col-md-7 {
+    width: 58.33333333%;
+}
+
+.col-md-6 {
+    width: 50%;
+}
+
+.col-md-5 {
+    width: 41.66666667%;
+}
+
+.col-md-4 {
+    width: 33.33333333%;
+}
+
+.col-md-3 {
+    width: 25%;
+}
+
+.col-md-2 {
+    width: 16.66666667%;
+}
+
+.col-md-1 {
+    width: 8.33333333%;
+}
+
+.col-md-pull-12 {
+    right: 100%;
+}
+
+.col-md-pull-11 {
+    right: 91.66666667%;
+}
+
+.col-md-pull-10 {
+    right: 83.33333333%;
+}
+
+.col-md-pull-9 {
+    right: 75%;
+}
+
+.col-md-pull-8 {
+    right: 66.66666667%;
+}
+
+.col-md-pull-7 {
+    right: 58.33333333%;
+}
+
+.col-md-pull-6 {
+    right: 50%;
+}
+
+.col-md-pull-5 {
+    right: 41.66666667%;
+}
+
+.col-md-pull-4 {
+    right: 33.33333333%;
+}
+
+.col-md-pull-3 {
+    right: 25%;
+}
+
+.col-md-pull-2 {
+    right: 16.66666667%;
+}
+
+.col-md-pull-1 {
+    right: 8.33333333%;
+}
+
+.col-md-pull-0 {
+    right: 0;
+}
+
+.col-md-push-12 {
+    left: 100%;
+}
+
+.col-md-push-11 {
+    left: 91.66666667%;
+}
+
+.col-md-push-10 {
+    left: 83.33333333%;
+}
+
+.col-md-push-9 {
+    left: 75%;
+}
+
+.col-md-push-8 {
+    left: 66.66666667%;
+}
+
+.col-md-push-7 {
+    left: 58.33333333%;
+}
+
+.col-md-push-6 {
+    left: 50%;
+}
+
+.col-md-push-5 {
+    left: 41.66666667%;
+}
+
+.col-md-push-4 {
+    left: 33.33333333%;
+}
+
+.col-md-push-3 {
+    left: 25%;
+}
+
+.col-md-push-2 {
+    left: 16.66666667%;
+}
+
+.col-md-push-1 {
+    left: 8.33333333%;
+}
+
+.col-md-push-0 {
+    left: 0;
+}
+
+.col-md-offset-12 {
+    margin-left: 100%;
+}
+
+.col-md-offset-11 {
+    margin-left: 91.66666667%;
+}
+
+.col-md-offset-10 {
+    margin-left: 83.33333333%;
+}
+
+.col-md-offset-9 {
+    margin-left: 75%;
+}
+
+.col-md-offset-8 {
+    margin-left: 66.66666667%;
+}
+
+.col-md-offset-7 {
+    margin-left: 58.33333333%;
+}
+
+.col-md-offset-6 {
+    margin-left: 50%;
+}
+
+.col-md-offset-5 {
+    margin-left: 41.66666667%;
+}
+
+.col-md-offset-4 {
+    margin-left: 33.33333333%;
+}
+
+.col-md-offset-3 {
+    margin-left: 25%;
+}
+
+.col-md-offset-2 {
+    margin-left: 16.66666667%;
+}
+
+.col-md-offset-1 {
+    margin-left: 8.33333333%;
+}
+
+.col-md-offset-0 {
+    margin-left: 0;
+}
+
+.font-smooth {
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.global-margin {
+    margin-top: 65px;
+}
+
+.title {
+    font-size: 42px;
+    font-weight: 300;
+}
+
+.subtitle {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: .7;
+}
+
+.subtitle-2 {
+    color: #3b4045;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 45px;
+}
+
+.section {
+    margin-top: 65px;
+}
+
+    .section h2 {
+        color: #3b4045;
+        font-size: 28px;
+        font-weight: 300;
+    }
+
+    .section h4 {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .section p {
+        margin-bottom: 40px;
+    }
+
+    .section em {
+        font-style: normal;
+    }
+
+    .section b, .section strong, .section em {
+        color: #366fb3;
+    }
+
+    .section h4 .light {
+        color: #9199a1;
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+.tips {
+    color: #6a737c;
+    font-size: 11px;
+    margin-bottom: 0 !important;
+}
+
+    .tips b {
+        font-size: 12px;
+        display: block;
+        color: #6a737c;
+        font-weight: 600;
+    }
+
+.bg-area {
+    color: white;
+    min-height: 400px;
+}
+
+    .bg-area .title {
+        color: white;
+    }
+
+.counter .count {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid white;
+    opacity: .7;
+    display: inline-block;
+    margin-right: 3px;
+    cursor: pointer;
+    transition: border .3s ease,opacity .3s ease;
+}
+
+    .counter .count:last-child {
+        margin-right: 0;
+    }
+
+    .counter .count:hover {
+        border-width: 2px;
+        opacity: 1;
+    }
+
+    .counter .count.active {
+        opacity: 1;
+        background: white;
+        pointer-events: none;
+    }
+
+.section-benefits .quotesContainer {
+    overflow: hidden;
+    height: 400px;
+    position: relative;
+}
+
+    .section-benefits .quotesContainer .quotesWrapper {
+        width: 4000px;
+        overflow: hidden;
+        position: absolute;
+        top: 220px;
+        left: 0;
+    }
+
+        .section-benefits .quotesContainer .quotesWrapper .quote {
+            width: 480px;
+            margin: 0 250px;
+            float: left;
+        }
+
+.section-benefits .quotes {
+    background-color: #1c2a33;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+    .section-benefits .quotes .bg {
+        background-repeat: no-repeat;
+        background-position: center center;
+        opacity: .15;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .section-benefits .quotes .row {
+        position: relative;
+        z-index: 10;
+    }
+
+    .section-benefits .quotes .author {
+        display: block;
+        padding-top: 20px;
+    }
+
+        .section-benefits .quotes .author:before {
+            content: "— ";
+        }
+
+    .section-benefits .quotes .title {
+        margin: 74px 0 0 0;
+    }
+
+    .section-benefits .quotes .quote {
+        font-size: 17px;
+        font-style: italic;
+    }
+
+    .section-benefits .quotes .counter {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        margin-left: -63px;
+    }
+
+    .section-benefits .quotes .icon-circle {
+        font-size: 16px;
+        line-height: 48px;
+        margin: 26px 0;
+    }
+
+.section-benefits .benefits .icon-circle {
+    float: left;
+    margin-right: 8px;
+}
+
+.section-benefits .benefits p {
+    padding-top: 6px;
+}
+
+.section-benefits .benefits.alone {
+    margin-top: 20px;
+}
+
+.btn-white {
+    background: rgba(255,255,255,0.7);
+    display: inline-block;
+    border-radius: 3px;
+    padding: 3px 8px;
+    font-weight: 500;
+}
+
+    .btn-white:hover {
+        background: #54cad1;
+        color: white;
+    }
+
+.section-search {
+    background: #366fb3 url('img/work-here/bg-header.jpg?v=e658875a9ace') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    transition: all .5s ease;
+    overflow: hidden;
+    min-height: 400px;
+    height: auto;
+    max-height: 400px;
+}
+
+    .section-search .row {
+        padding: 20px;
+    }
+
+    .section-search #no-result {
+        display: none;
+        margin-top: 30px;
+        line-height: 23px;
+    }
+
+    .section-search .results {
+        opacity: 0;
+    }
+
+    .section-search.filled {
+        max-height: 900px;
+    }
+
+        .section-search.filled .results {
+            opacity: 1;
+        }
+
+    .section-search .title {
+        margin: 100px 0 5px 0;
+        font-weight: 100;
+        -webkit-font-smoothing: auto;
+        font-smoothing: auto;
+        letter-spacing: 1px;
+    }
+
+    .section-search .jobs li {
+        display: inline-block;
+        margin: 15px 30px 0 0;
+        width: 286px;
+        vertical-align: top;
+    }
+
+        .section-search .jobs li:nth-child(3n) {
+            margin-right: 0;
+        }
+
+.search-jobs form {
+    margin-top: 30px;
+    padding: 0;
+    position: relative;
+    border: 2px solid rgba(255,255,255,0.7);
+    border-radius: 6px;
+    display: inline-block;
+}
+
+    .search-jobs form * {
+        font-size: 13px;
+    }
+
+    .search-jobs form .padding {
+        padding: 8px 10px;
+    }
+
+    .search-jobs form button[type="submit"] {
+        background: none;
+        color: white;
+        border: 0;
+        cursor: pointer;
+        width: 36px;
+        margin-left: -3px;
+    }
+
+        .search-jobs form button[type="submit"]:hover, .search-jobs form button[type="submit"]:focus {
+            color: #54cad1;
+        }
+
+    .search-jobs form .custom-select-wrapper {
+        border-left: 2px solid rgba(255,255,255,0.7);
+        border-right: 2px solid rgba(255,255,255,0.7);
+        display: inline-block;
+        line-height: 37px;
+    }
+
+        .search-jobs form .custom-select-wrapper.job-team {
+            margin-left: -6px;
+            border: 0;
+        }
+
+    .search-jobs form .custom-select {
+        background: url('img/work-here/arrow.svg?v=dd3c2d054dea') no-repeat 95% 50%;
+        color: white;
+        border-radius: 0;
+        margin: 0;
+        height: 36px;
+        width: 180px;
+        border: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+    }
+
+        .search-jobs form .custom-select option {
+            background: #c6d5e6;
+            color: #35485c;
+        }
+
+        .search-jobs form .custom-select.disabled {
+            opacity: .6;
+            pointer-events: none;
+        }
+
+        .search-jobs form .custom-select option {
+            max-width: 150px;
+        }
+
+.no-svg .search-jobs form .custom-select {
+    background: url('img/work-here/arrow.png?v=b88f066ac7b6') no-repeat 95% 50%;
+}
+
+.hide {
+    display: none;
+}
+
+#search-result-title {
+    margin: 30px auto 0 auto;
+    min-height: 46px;
+}
+
+.results {
+    margin-top: 30px;
+}
+
+    .results.disabled {
+        opacity: .6;
+        pointer-events: none;
+    }
+
+    .results h5 {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 0;
+    }
+
+    .results .return {
+        color: #b2c2d5;
+        font-size: 12px;
+    }
+
+        .results .return:hover {
+            color: #54cad1;
+        }
+
+    .results hr {
+        margin: 14px auto;
+        border: 0;
+        background: rgba(255,255,255,0.4);
+        height: 1px;
+    }
+
+    .results .jobs a {
+        color: #54cad1;
+        display: block;
+    }
+
+        .results .jobs a:hover {
+            text-decoration: underline;
+        }
+
+.section.cta {
+    margin-bottom: 35px;
+}
+
+    .section.cta h2 {
+        font-size: 18px;
+    }
+
+    .section.cta .icon-circle {
+        margin: 0 auto 14px auto;
+        font-size: 30px;
+    }
+
+.icon-circle {
+    border-style: solid;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-block;
+}
+
+    .icon-circle.big {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+    }
+
+    .icon-circle.medium {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 24px;
+    }
+
+    .icon-circle.small {
+        width: 28px;
+        height: 28px;
+        line-height: 30px;
+    }
+
+    .icon-circle.red {
+        border-color: #f35d5f;
+        border-width: 1px;
+        color: #f35d5f;
+    }
+
+    .icon-circle.gray {
+        border-color: #ccdbed;
+        color: #ccdbed;
+        border-width: 1px;
+    }
+
+    .icon-circle.blue {
+        border-color: #ccdbed;
+        border-width: 2px;
+        color: #366fb3;
+    }
+
+    .icon-circle.white {
+        border-color: white;
+        border-width: 2px;
+        color: white;
+    }
+
+.section-work .icons {
+    margin: 15px 0 25px 0;
+}
+
+    .section-work .icons .col-md-4:first-child {
+        padding-left: 0;
+        max-width: 86px;
+    }
+
+    .section-work .icons .name {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .section-work .icons .location {
+        color: #9199a1;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+.section-work .map-wrapper {
+    position: relative;
+    margin-top: 50px;
+}
+
+.section-work .NY, .section-work .denver, .section-work .london {
+    position: absolute;
+}
+
+.section-work .NY {
+    top: 77px;
+    left: 158px;
+}
+
+.section-work .denver {
+    top: 78px;
+    left: 114px;
+}
+
+.section-work .london {
+    top: 57px;
+    left: 263px;
+}
+
+.section-positions .jobs-wrapper {
+    border-bottom: 1px solid #e4e6e8;
+    margin-bottom: 25px;
+}
+
+    .section-positions .jobs-wrapper:last-child {
+        border-bottom: 0;
+    }
+
+    .section-positions .jobs-wrapper h3 {
+        font-size: 18px;
+    }
+
+    .section-positions .jobs-wrapper .jobs {
+        margin-bottom: 0;
+    }
+
+        .section-positions .jobs-wrapper .jobs .job {
+            display: inline-block;
+            width: 33%;
+            padding-bottom: 25px;
+        }
+
+    .section-positions .jobs-wrapper .job-title {
+        display: block;
+    }
+
+    .section-positions .jobs-wrapper .location {
+        color: #6a737c;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+.section-webuild .text {
+    padding-top: 70px;
+}
+
+    .section-webuild .text .stat {
+        display: inline-block;
+        line-height: 15px;
+        padding: 0 0 0 14px;
+        position: relative;
+        top: -3px;
+    }
+
+        .section-webuild .text .stat .number {
+            color: #f35d5f;
+            font-size: 18px;
+            display: block;
+        }
+
+        .section-webuild .text .stat .type {
+            color: #b2b9c0;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
+
+    .section-webuild .text .separation {
+        height: 18px;
+        margin: 14px 0;
+        border-top: 1px solid #e3e6e8;
+        border-left: 1px solid #e3e6e8;
+        border-right: 1px solid #e3e6e8;
+        position: relative;
+    }
+
+        .section-webuild .text .separation:before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 6px solid #e3e6e8;
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            margin-left: -11px;
+        }
+
+    .section-webuild .text .logos {
+        position: relative;
+        left: 10px;
+        top: -15px;
+    }
+
+        .section-webuild .text .logos .col-md-6:first-child {
+            padding: 0 10px;
+        }
+
+        .section-webuild .text .logos .description {
+            font-size: 12px;
+            padding-top: 6px;
+        }
+
+            .section-webuild .text .logos .description.second {
+                padding-top: 4px;
+            }
+
+        .section-webuild .text .logos h5 {
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+.gallery:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.gallery .photo {
+    height: 100px;
+    width: 138px;
+    float: left;
+    margin: 0 12px;
+    overflow: hidden;
+    border: 0 solid #dbdbdb;
+    transition: border .3s ease;
+}
+
+    .gallery .photo:first-child {
+        margin-left: 0;
+    }
+
+    .gallery .photo:last-child {
+        margin-right: 0;
+    }
+
+    .gallery .photo:hover {
+        border: 5px solid #dbdbdb;
+    }
+
+    .gallery .photo img {
+        max-width: 100%;
+        height: inherit;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+#fancybox-overlay {
+    background-color: #081826 !important;
+}

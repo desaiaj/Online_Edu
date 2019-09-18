@@ -1,0 +1,139 @@
+﻿.globle
+{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+	 font-style:normal;
+}
+
+.gFontColor
+{
+    color:#0066CC !important;
+}
+
+.gBGColor
+{
+    background-color:#0066CC !important;
+}
+
+.gBorderColor
+{
+    border-color:#0066CC !important;
+}
+
+.BorderBlack
+{
+    border-color:#4e4c4c !important;
+}
+
+.FontBlack
+{
+    color:#4e4c4c !important;
+}
+
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
+h1,h2,h3,h4,h5
+{
+    margin-top:0px !important;
+    margin-bottom:0px !important;
+}
+
+.ProfileBody
+{
+   margin:0px 0px 10px 0px;
+   padding:10px 10px 10px 10px;
+   /*border-style:solid;
+   border-width:medium;
+   border-color:dimgrey;*/
+
+}
+
+.errorMsg
+{
+    color:red;
+    height:10px;
+}
+
+input:focus
+{
+    border-color:forestgreen !important;
+}
+
+input[type="radio"] 
+{
+    margin-top:0px !important;
+    height:20px !important;
+    width:20px !important;
+    font-size:16px !important;
+    font-style:normal !important;
+}
+
+.header
+{
+    height:50px;
+    margin:15px 10px 15px 10px !important;
+}
+
+.heding
+{
+    border-bottom-style:solid;
+    border-bottom-color:lightgray;
+    border-bottom-width:thin;
+    height:100%;
+    padding:0px 0px 0px 5px !important; 
+    font-size:21px;
+    font-weight:300 !important;
+}
+
+.dataBody
+{
+    height:600px;
+    border-style:solid;
+    margin:0px 0px 0px 0px !important;
+}
+
+.profile
+{
+    border-style:solid;
+    height:800px;
+}
+
+.proIMG
+{
+    margin-top:100px;
+    background-color:brown;
+    height:180px;
+    width:180px !important;
+    border-radius:50% 50% 50% 50%;
+}
+
+.rmPadding
+{
+    padding:0px 4px 0px 0px !important;
+}
+
+.inputTitle {
+    font-stretch: normal;
+    font-size: medium;
+    font-weight: 500;
+     color:#4e4c4c !important;
+}
+
+.inputStyle
+{
+    border-radius:0px 0px 0px 0px !important;
+    border-style:solid;
+    border-width:medium !important; 
+    width:100%;
+}
+
+.btnStyle
+{
+    width:100% !important;
+}
+
+label
+{
+    margin-bottom:0px !important;
+}

@@ -1,0 +1,91 @@
+﻿.globle
+{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+	 font-style:normal;
+     background-color:lightgray;
+     background-repeat:no-repeat;
+     background-size:cover;
+}
+
+.gFontColor
+{
+    color:#0066CC !important;
+}
+
+.gBGColor
+{
+    background-color:#0066CC !important;
+}
+
+.gBorderColor1
+{
+    border-color:#0066CC !important;
+}
+
+.gBorderColor2
+{
+    border-color:lightskyblue !important;
+}
+
+
+.frmBody
+{
+    position:absolute;
+    top:50px;
+    border-style:solid;
+    border-width:3px;
+    border-color:gray;
+    /*margin-top:150px !important;
+    margin-bottom:20px !important;*/
+    background-color:white;
+}
+
+.headMaster
+{
+     border-bottom-style:solid;
+     border-bottom-width:3px;
+	 border-bottom-color:dimgrey;
+	 /*margin-left:15px !important;
+     margin-right:15px !important;*/
+ }
+
+input[type="text"], input[type="password"], select 
+{
+    color:black !important;
+    border-width:3px !important;
+    height:46px !important;
+}
+
+
+.mgnRemove
+{
+    margin-left:0px !important;
+    margin-right:0px !important;
+}
+
+span
+{
+    border-width:3px !important;
+    height:45px;  
+}
+
+
+.errorMsg
+{
+    font-size:13px; 
+	font-weight:400;
+	color:#FF0000;
+    margin-bottom:0px !important;
+    margin-top:10px;
+    height:14px;
+}
+
+@media only screen and (max-width: 770px)
+{
+    .Mobile
+    {
+       
+        margin-left:10px;
+        margin-right:10px;
+    }
+}

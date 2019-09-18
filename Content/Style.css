@@ -1,0 +1,121 @@
+/* Globle Style */
+
+
+.contantBody
+{
+    border-style:solid;
+    margin-top:60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.rdbSize
+{ 
+      font-size:large;
+      font-weight:400;
+      color:dimgray;
+}
+
+.globFont
+{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+	 font-style:normal;
+}
+
+.headMaster
+{
+     border-bottom-style:solid;
+	 border-bottom-color:#CCCCCC;
+	 color:#0066CC;
+ }
+
+
+/* Other Style */
+
+.frmSize
+{
+    width:500px;
+}
+
+.inputPadding
+{
+    padding-left:15px;
+	padding-right:15px;
+}
+
+.errorMsg
+{
+    font-size:14px; 
+	font-weight:400;
+	color:#FF0000;
+	display:none;
+}
+
+
+
+/*------------ Online Education ------------*/
+
+.globFont
+{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+	 font-style:normal;
+}
+
+.appSetting
+{
+    background-color:#616161;
+    color:white;
+    height:30px;
+    padding:4px;
+}
+
+.title
+{
+    height:200px;
+    padding:20px;
+    background-color:;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19); 
+}
+
+.manu
+{
+    height:50px;
+    background-color:#3f51b5;
+}

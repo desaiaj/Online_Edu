@@ -1,0 +1,140 @@
+/* Globle Style */
+
+.gFontColor
+{
+    color:#0066CC !important;
+}
+
+.gBGColor
+{
+    background-color:#0066CC !important;
+}
+
+.gBorderColor1
+{
+    border-color:#0066CC !important;
+}
+
+.gBorderColor2
+{
+    border-color:lightskyblue !important;
+}
+
+
+.frmBody
+{
+    border-style:solid;
+    border-width:3px;
+    border-color:gray;
+   
+    margin-bottom:20px !important;
+    background-color:white;
+}
+
+.rdbSize
+{ 
+      font-size:16px;
+      font-style:normal;
+      color:dimgray;
+}
+
+.globle
+{
+     font-family:Verdana, Arial, Helvetica, sans-serif;
+	 font-style:normal;
+     background-color:lightgray;
+     /*background-image:url(../Images/16296280-beige-canvas-background-carpet-texture-with-horizontal-stripes--Stock-Photo.jpg);*/
+     background-repeat:no-repeat;
+     background-size:cover;
+}
+
+.headMaster
+{
+     border-bottom-style:solid;
+     border-bottom-width:3px;
+	 border-bottom-color:dimgrey;
+	 margin-left:15px !important;
+     margin-right:15px !important;
+ }
+
+.padRemove
+{
+    padding-left:0px !important;
+    padding-right:0px !important;
+}
+
+.mgnRemove
+{
+    margin-left:0px !important;
+    margin-right:0px !important;
+}
+
+input[type="radio"] 
+{
+    margin-top:0px !important;
+    height:20px;
+    /*width:20px;*/
+}
+
+input[type="text"], input[type="password"], select 
+{
+    color:black !important;
+    border-width:3px !important;
+    /*height:45.5px;*/
+}
+
+span
+{
+    border-width:3px !important;
+    /*height:46px !important;*/
+}
+
+
+
+i[class="glyphicon glyphicon-user"]
+{
+    margin-right:20px;
+    font-size:30px;
+}
+
+
+
+/* Other Style */
+
+.frmSize
+{
+    width:500px;
+}
+
+
+
+.errorMsg
+{
+    font-size:13px; 
+	font-weight:400;
+	color:#FF0000;
+    margin-bottom:0px !important;
+    margin-top:10px;
+    height:14px;
+}
+
+
+
+/*------------ Online Education ------------*/
+
+.appSetting
+{
+    background-color:#424242;
+}
+
+
+
+@media only screen and (max-width: 770px)
+{
+    .Mobile
+    {
+       
+        margin-left:10px;
+        margin-right:10px;
+    }
+}
