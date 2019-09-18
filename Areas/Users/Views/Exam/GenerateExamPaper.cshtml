@@ -1,0 +1,204 @@
+﻿@model OnlineEducation.Models.ExamModel
+
+@{
+    ViewBag.Title = "GenerateExamPaper";
+    Layout = "~/Areas/Users/Views/Shared/_UserMasterPage.cshtml";
+}
+
+<style type="text/css">
+    .globle {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-style: normal;
+    }
+
+    .gFontColor {
+        color: #0066CC !important;
+    }
+
+    .gBGColor {
+        background-color: #0066CC !important;
+    }
+
+    .gBorderColor {
+        border-color: #0066CC !important;
+    }
+
+    .BorderBlack {
+        border-color: #4e4c4c !important;
+    }
+
+    .FontBlack {
+        color: #4e4c4c !important;
+    }
+
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+    }
+
+    h1, h2, h3, h4, h5 {
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .mainBody {
+        z-index: 2000;
+        position: fixed;
+        top: 78px !important;
+        left: 10px !important;
+        right: 10px !important;
+        bottom: 10px;
+    }
+
+    .heding {
+        height: 10%;
+        padding: 30px 10px 0px 20px !important;
+        font-size: 22px;
+        font-weight: 600 !important;
+    }
+
+    .examArea {
+        border-radius: 20px;
+        background-color: lightgray;
+        position: absolute;
+        top: 15%;
+        bottom: 5%;
+        left: 20%;
+        right: 20%;
+        padding: 100px 80px 80px 80px;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        myvar = setTimeout(FinishExam, 1500000); 
+        countdown(25,1);
+    });
+
+    var timeoutHandle;
+    function countdown(minutes, stat) {
+        var seconds = 60;
+        var mins = minutes;
+
+        if (getCookie("minutes") && getCookie("seconds") && stat) {
+            var seconds = getCookie("seconds");
+            var mins = getCookie("minutes");
+        }
+
+        function tick() {
+
+            var counter = document.getElementById("timer");
+            setCookie("minutes", mins, 25)
+            setCookie("seconds", seconds, 5)
+            var current_minutes = mins - 1
+            seconds--;
+            counter.innerHTML = current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
+            //save the time in cookie
+
+
+
+            if (seconds > 0) {
+                timeoutHandle = setTimeout(tick, 1000);
+            } else {
+
+                if (mins > 1) {
+
+                    // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst    
+                    setTimeout(function () { countdown(parseInt(mins) - 1, false); }, 1000);
+
+                }
+            }
+        }
+        tick();
+    }
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 60 * 60 * 1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    countdown(25, true);
+
+    function FinishExam()
+    {
+        document.getElementById("frmExam").submit();
+    }
+</script>
+
+<div id="timer">d </div>
+@{
+    Html.BeginForm("GenerateResult", "Exam", FormMethod.Post,new { @id="frmExam",@name="frmExam"} );
+}
+<div class="mainBody">
+    <div class="heding gFontColor">
+        <h2>@{@Model.loQA.ElementAt(1).Subject;}</h2>
+    </div>
+    
+    <div class="examArea">
+        <input type="hidden" id="ExamType@{@Model.loQA.ElementAt(1).ExamTypeID;}" name="ExamType" value="@{@Model.loQA.ElementAt(1).ExamTypeID;}" />
+        @{
+
+            var i = 1;
+            foreach (var data in Model.loQA)
+            {
+                <div id="@i" style="display:none;">
+                    <div>
+                        @data.ExamTypeID
+                        @data.QueNumber
+                        <input type="hidden" id="QueNumber" name="QueNumber@{@i;}" value="@data.QueNumber" />
+                        <h3> @i.  @data.Question</h3>
+                    </div>
+                    <div style="padding:50px 10px 10px 50px;">
+                        <br />
+                        <h4>
+                            <label><input type="radio" name="Options@{@i;}" id="Option1" value="@data.option1" />  A. @data.option1</label> 
+                        </h4>
+                        <br />
+                        <h4>
+                          <label><input type="radio" name="Options@{@i;}" id="Option2" value="@data.option2" /> B. @data.option2</label>
+                        </h4>
+                        <br />
+                        <h4>
+                            <label><input type="radio" name="Options@{@i;}" id="Option3" value="@data.option3" /> C. @data.option3</label>
+                        </h4>
+                        <br />
+                        <h4>
+                            <label><input type="radio" name="Options@{@i;}" id="Option4" value="@data.Answer" /> D. @data.Answer</label>
+                        </h4>
+                        <br />
+                    </div>
+                    @{ i++;}
+                </div>
+                        }
+                        <div>
+                            <input type="button" class="btn btn-primary btn-lg pull-right gBorderColor gBGColor" value="Next" name="Next" onclick="manageExam();" />
+
+                            <input type="submit" class="btn btn-primary btn-lg pull-right gBorderColor gBGColor" value="Finish" name="Finish" />
+                        </div>
+        }
+    </div>
+</div>
+@{ Html.EndForm();}
+<script>
+    $('#btnManuLeft').hide();
+    var ActiveQue = 1;
+    $('#1').show();
+    function manageExam() {
+        $('#' + ActiveQue).hide();
+        ActiveQue = ActiveQue + 1;
+        $('#' + ActiveQue).show();
+    }
+
+</script>
+@*<input type="submit" value="Next" name="Next" onclick="@{ @Url.Action("GenerateExamPaper","Exam") }" />*@

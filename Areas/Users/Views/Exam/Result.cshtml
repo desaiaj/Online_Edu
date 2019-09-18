@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Results";
+    Layout = "~/Areas/Users/Views/Shared/_UserMasterPage.cshtml";
+}
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<h2>Results</h2>
+<br />
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Result ID </th>
+            <th>Subject</th>
+            <th>Obtained Marks</th>
+            <th>Grade</th>
+            <th>Rank</th>
+            <th>Time To Finish </th>
+            <th>Global Grade</th>
+            <th>Global Rank</th>
+            <th>Result Date</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            foreach (var Data in Model)
+            {
+                var i = 0;
+                <tr>
+                    <td> @Data.ResultID</td>
+                    <td> @Data.Subject</td>
+                    <td> @Data.ObtainedMarks</td>
+                    <td> @Data.Grade</td>
+                    <td> @Data.Rank</td>
+                    <td> @Data.TimeTaken</td>
+                    <td> @Data.GlobalGrade</td>
+                    <td> @Data.GlobalRank</td>
+                    <td> @Data.CreatedOn.ToShortDateString()</td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>

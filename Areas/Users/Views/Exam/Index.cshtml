@@ -1,0 +1,29 @@
+﻿@*@model OnlineEducation.Models.ExamModel*@
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Users/Views/Shared/_UserMasterPage.cshtml";
+}
+
+<h2>Index</h2>
+
+@{
+    foreach (var data in Model)
+    {
+        //@Html.ActionLink((String)data.Subject, "GenerateExamPaper", "Exam", new { id = data.ExamTypeID })
+        <a href="@Url.Action("GenerateExamPaper","Exam",new { ExamID=data.ExamTypeID})" name="Subject"> @data.Subject </a>
+        <br />
+    }
+}
+<div style="float:left">
+    <font>
+        1. The Exam will be of 20 Questions Each one will be of 1 Marks
+        <br /> 2. 1 Marks For every Questions will be counted For Right Answer and no marks will be Deducted for wrong answer
+        <br />3. You will have 25 minutes to finish Exam for 20 Questions
+        <br />4. All questions are objective type question and there will be 4 options for the same question
+        <br /> 5. You can Finish Exam any time You want to exit from exam
+        <br />6. After Finishing Exam you will get to the result page where You will find the Result of currently given exam and all exams given by You
+        <br />7. After Exam Finish If You have any kind of Query then You can Contact Us We Will help You for The Same Problem.
+        <br /><h3> All The Best</h3>
+    </font>
+</div>

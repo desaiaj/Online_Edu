@@ -1,0 +1,96 @@
+﻿.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 300;
+    top: 78px;
+    left: 0;
+    background-color:grey;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 5px 0px 5px 0px;
+    text-align:center;
+    overflow-y:hidden !important;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+
+}
+
+.sidenav a:hover{
+    color: #f1f1f1;
+}
+
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color:#212121 !important;
+}
+
+
+.filterArea
+{   position: absolute;
+    top: 85px;
+    right: 30px;
+    left:30px;
+    height:220px; 
+}
+
+.result
+{
+    position:absolute;
+    margin-top:300px;
+    right: 30px;
+    left:30px;
+    height:290px; 
+}
+
+.sidenaveBody
+{
+    margin:5px 5px 5px 5px !important;
+    height:500px;
+}
+
+
+.dataBody
+{
+    height:1000px;
+    width:88%;
+    border:solid;
+    border-width:1px;
+    border-color:lightgray;
+    margin:10px 70px 2px 70px !important;
+    z-index:1;
+}
+
+
+
+
+
+@media screen and (min-width: 769px) {
+
+    .penalresponsive {
+        width: 50% !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .penalresponsive {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

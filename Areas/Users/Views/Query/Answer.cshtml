@@ -1,0 +1,101 @@
+﻿@model OnlineEducation.Models.QueryModel
+
+@{
+    ViewBag.Title = "Question";
+    Layout = "~/Areas/Users/Views/Shared/_UserMasterPage.cshtml";
+}
+
+<h2>Answers</h2>
+
+<div>
+    @{
+        Html.BeginForm("AddAnswer", "Query", FormMethod.Post);
+    }
+    <div id="question-form">
+        <div style="position: relative;">
+            <div class="form-item ask-title">
+                <table class="ask-title-table">
+                    <tbody>
+                        <tr>
+                            <td colspan="3" style="font-size:20px">Question</td>
+                        </tr>
+
+                        <tr style="border-bottom:1px solid blue">
+                            <td class="ask-title-cell-value">
+                                @Html.HiddenFor(m => m.QueryID, Model.loQueryData[0].QueryID)
+                                @Model.loQueryData[0].QueryID
+                                @Model.loQueryData[0].Query
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Model.loQueryData[0].Desc
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">Posted On @Model.loQueryData[0].dtQueryDate.Value.ToShortDateString()</td> 
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="font-size:20px"><br /> Answers</td>
+                        </tr>
+                        @{
+                            foreach (var data in Model.loQueryData)
+                            {
+                                @*<tr style="border-bottom:1px solid blue">
+                                        <td class="ask-title-cell-value">
+                                            @Html.HiddenFor(m=>m.QueryID, data.QueryID)
+                                            @data.QueryID
+                                            @data.Query
+                                        </td>
+                                        <td>
+                                            @data.Desc
+                                        </td>
+                                    </tr>*@
+                                <tr style="border-bottom:2px solid blue">
+                                    <td>
+                                        @data.Answer
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
+        <br />
+        Post Your Answer
+        <div id="post-editor" class="post-editor js-post-editor">
+            <div style="position: relative;">
+                <div class="wmd-container">
+                    @Html.TextAreaFor(m => m.Answer, new
+               {
+                   @placeholder = "Enter Answer For the Above Question",
+                   @class = "wmd-input processed",
+                   @spellcheck = "true",
+                   @cols = "92",
+                   @rows = "12"
+               })
+                </div>
+            </div>
+
+        </div>
+
+        <div style="position: relative;">
+            <div style="position: relative;">
+                <div class="form-item">
+                    <label>Tags</label>
+                    <div class="tag-editor" style="width: 658.182px; height: 35.1818px;">
+                        <input type="text" tabindex="103" placeholder="at least one tag such as (c++ multithreading xml), max 5 tags" style="width: 650.182px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="question-only-section">
+            <div class="form-submit cbt">
+                <input id="submit-button" type="submit" value="Post Your Answer" tabindex="120">
+            </div>
+        </div>
+    </div>
+    @{Html.EndForm();}
+</div>

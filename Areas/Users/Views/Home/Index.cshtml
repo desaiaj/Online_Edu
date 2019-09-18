@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Areas/Users/Views/Shared/_UserMasterPage.cshtml";
+}
+
+@{
+
+    if (Request.QueryString["TID"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                var id = "@Request.QueryString["TID"]";
+                $('#TutorialID').val(id);
+            });
+        </script>
+    }
+
+    if (Request.QueryString["Tutorial"] != null)
+    {
+        <script>
+            $(document).ready(function () {
+                var src = "/Uploads/@Request.QueryString["Tutorial"]";
+                $('#Display').attr('src', src);
+                $('#Settings').css("display", "block");
+            });
+        </script>
+    }
+    else
+    {
+        <script>
+            $(document).ready(function () {
+                $('#Tutorial').css("display", "none");
+                $('#Settings').css("display", "none");
+            });
+        </script>
+    }
+}
+
+<!-- #1 jQuery-Include -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+<!-- #2 Include Downloaded Files -->
+<link href="~/Areas/Users/Style/UserMasterStyle.css" rel="stylesheet" />
+@*<link href="~/Content/dESIGN/wall.css" rel="stylesheet" />
+    <script src="~/scripts/wall.js"></script>*@
+@*<script src="~/scripts/jquery-1.9.1.js"></script>*@
+<script src="~/scripts/SearchTutorials.js"></script>
+
+
+<div id="mySidenav" class="sidenav">
+    <div class="sidenaveBody">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidePan()">&times;</a>
+        <div class="filterArea" id="filter">
+            <div class="input-group" style="margin-top:20px;width:auto;height:auto;">
+                <input class="" type="text" id="Category" style="left:10px;border-color:#212121;border-width:3px;border-radius:0px;height:30px;width:230px;" placeholder="Category" />
+            </div>
+            <div class="input-group" style="margin-top:20px;width:auto;height:auto;">
+                <input class="" type="text" id="Subject" style="left:10px;border-color:#212121;border-width:3px;border-radius:0px;height:30px;width:230px;" placeholder="Subject" />
+            </div>
+            <div class="input-group" style="margin-top:20px;width:auto;height:auto;">
+                <input class="" type="text" id="Search" style="left:10px;border-color:#212121;border-width:3px;border-radius:0px;height:30px;width:200px;" placeholder="Category" />
+                <span><button id="SearchFile" style="border-color:#212121;border-width:3px;border-radius:0px;height:30px;"><i class="glyphicon glyphicon-search"></i></button></span>
+            </div>
+        </div>
+        <div class="result" id="Result">
+
+        </div>
+        @*<div style="margin-left:10%;margin-right:10%;width:80%;">
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input class="input-lg" type="text" style="width:250px;border-color:#212121;border-width:3px;border-radius:0px;" placeholder="Subject" />
+            </div>
+            <div class="input-group" style="margin-left:10%;margin-right:10%;width:80%;margin-top:20px;height:auto;">
+                <input class="input-lg" type="text" style="width:475px;border-color:#212121;border-width:3px;border-radius:0px;border-right:none;margin-top:7px;" placeholder="Custom Search" />
+                <span><button class="btn btn-lg btn-success" style="border-color:#212121;border-width:3px;border-radius:0px;border-left:none;margin-bottom:5px;"><i class="glyphicon glyphicon-search"></i></button></span>
+            </div>*@
+    </div>
+
+    @*<div class="btnOpenSidenav" style="object-position:center;" onclick="openNav();" id="btnNav">
+            <i id="btnSideNav" class="glyphicon glyphicon-menu-right" style="font:bold 20px;"></i>
+        </div>*@
+</div>
+
+<div>
+    <div class="dataBody" id="Tutorial" style="float:left;margin-right:25px !important;">
+        <input type="hidden" id="TutorialID" name="ID" value="" />
+        <iframe name="Display" id="Display" style="width:100%;height:100%"> </ </iframe>
+        @*<div id="Like" style="border-bottom:1px solid blue;cursor:pointer;" onclick="LikeTutorial(this);"> Likes </div>*@
+        @*<div id="Unlike" style="display:none;border-bottom:1px solid blue;cursor:pointer" onclick="LikeTutorial(this);"> Unlike </div>*@
+    </div>
+    
+    <div id="Settings" style="float:right;">
+        <div style="margin-bottom:20px;margin-top:150px;margin-right:21px;cursor:pointer;">
+            <img id="AddFavourite" src="~/Uploads/Favourite.png" height="40px" width="40px" onclick="AddtoFavourite(this);" />
+            <img id="RMFav" src="~/Uploads/Unfavourite.JPG" height="40px" width="40px" style="display:none" onclick="AddtoFavourite(this);" />
+        </div>
+        <div style="cursor:pointer">
+            <img id="Like" src="~/Uploads/like.png" height="40px" width="40px" onclick="LikeTutorial(this);" />
+            <img id="Unlike" src="~/Uploads/Unlike.png" height="40px" width="40px" style="display:none" onclick="LikeTutorial(this);" />
+        </div>
+
+    </div>
+</div>
+<script>
+    var Likelink = '@Url.Action("LikeTutorials", "SearchTutorials", new { area = "Users" })';
+    var Viewslink = '@Url.Action("TutorialsViews", "SearchTutorials", new { area = "Users" })';
+    var Fav = '@Url.Action("AddToFavourite", "SearchTutorials", new { area = "Users" })';
+
+    // to open Side Penal
+    function openSidePan() {
+        $('#mySidenav').attr('class', 'penalresponsive sidenav');
+        $('#btnManuLeft').hide();
+        $('#filter').show();
+        $('#Result').show();
+    }
+    // To Close Side Penal
+    function closeSidePan() {
+        $('#mySidenav').removeAttr('class', 'penalresponsive');
+        $('#mySidenav').attr('class', 'sidenav');
+        $('#btnManuLeft').show();
+        $('#filter').hide();
+        $('#Result').hide();
+    }
+</script>

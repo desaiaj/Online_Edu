@@ -1,0 +1,68 @@
+﻿@model OnlineEducation.Models.QueryModel
+@{
+    ViewBag.Title = "AskQuestion";
+    Layout = "~/Areas/Users/Views/Shared/_UserMasterPage.cshtml";
+}
+
+<h2>AskQuestion</h2>
+
+<div>
+    @{
+        Html.BeginForm("AddQuery", "Query", new { area = "Users" }, FormMethod.Post);
+    }
+    <div id="question-form">
+        <div style="position: relative;">
+            <div class="form-item ask-title">
+                <table class="ask-title-table">
+                    <tbody>
+                        <tr>
+                            <td class="ask-title-cell-key">
+                                <label for="title">What is the Question??  </label>
+                            </td>
+                            <td class="ask-title-cell-value">
+                                @Html.TextBoxFor(m => m.Query, new { @class = "ask-title-field ", @placeholder = "What's your programming question? Be specific.", @id = "title", @maxlength = "300",@style="width:310%;" })
+                                
+                                @*<input id="title" name="title" type="text" maxlength="300" tabindex="100" placeholder="What's your programming question? Be specific." class="ask-title-field" data-min-length="15" data-max-length="150" autocomplete="off">*@
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
+        <div id="post-editor" class="post-editor js-post-editor">
+
+            <div style="position: relative;">
+                <div class="wmd-container">
+                    @Html.TextAreaFor(m => m.Desc, new
+                  {
+                      @placeholder = "Enter More About your Question",
+                      @class = "wmd-input processed",
+                      @spellcheck = "true",
+                      @cols = "92",
+                      @rows = "15"
+                  })
+                    @*<textarea id="wmd-input" class="wmd-input processed" draggable="true" spellcheck="true" placeholder="Enter More About your Question " name="post-text" cols="92" rows="15"  ></textarea>*@
+                </div>
+            </div>
+
+        </div>
+
+        <div style="position: relative;">
+            <div style="position: relative;">
+                <div class="form-item">
+                    <label>Tags</label>
+                    <div class="tag-editor" style="width: 658.182px; height: 35.1818px;">
+                        <input type="text" tabindex="103" placeholder="at least one tag such as (c++ multithreading xml), max 5 tags" style="width: 112%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="question-only-section">
+            <div class="form-submit cbt">
+                <input id="submit-button" type="submit" value="Post Your Question" tabindex="120">
+            </div>
+        </div>
+    </div>
+    @{Html.EndForm();}
+</div>

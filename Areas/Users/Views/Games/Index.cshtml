@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Users/Views/Shared/_UserMasterPage.cshtml";
+}
+
+<h2> Games </h2>
+
+@*@Html.ActionLink("_2048", "Games",new { area= "Users" }) <label> 2048 </label>*@
+
+    <div style="position:fixed;top:30%;left:5%;right:5%;bottom:30%" class="raw">
+        <div class="col-lg-4" style="text-align:center;height:100%;">
+            <div style="border:1px solid;margin:0px 80px 0px 80px;padding:10px;border-radius:20px;background-color:lightgray;box-shadow:dimgray 5px 5px">
+                <a href="@Url.Action("_2048","Games")" style="color:black !important;font-weight:bold;"><img height="150" width="150" src="~/Areas/Users/Style/images/apple-touch-startup-image-640x920.png" /><br /><br />2048</a>
+            </div>
+        </div>
+
+        <div class="col-lg-4" style="text-align:center;">
+            <div style="border:1px solid;margin:0px 80px 0px 80px;padding:10px;border-radius:20px;background-color:lightgray;box-shadow:dimgray 5px 5px">
+                <a href="@Url.Action("Hextris","Games")" style="color:black !important;font-weight:bold;"><img width="150" height="150" src="~/Areas/Users/Style/images/twitter-opengraph.png" /><br /><br /> Hextris</a>
+            </div>
+        </div>
+
+        <div class="col-lg-4" style="text-align:center;">
+            <div style="border:1px solid;margin:0px 80px 0px 80px;border-radius:20px;padding:10px;background-color:lightgray;box-shadow:dimgray 5px 5px">
+                <a href="@Url.Action("Snake","Games")" style="color:black !important;font-weight:bold;"><img height="150" width="150" src="~/Images/snake.png" /><br /><br /> Snake</a>
+            </div>
+        </div>
+    </div>

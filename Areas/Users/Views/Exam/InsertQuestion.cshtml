@@ -1,0 +1,93 @@
+﻿@model OnlineEducation.Models.ExamModel
+@{
+    ViewBag.Title = "Generate Question Paper";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterPage.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+<script src="~/scripts/jquery-1.9.1.js"></script>
+<script src="~/scripts/bootstrap.min.js"></script>
+<script src="~/scripts/jquery.validate.js"></script>
+<script src="~/scripts/jquery.validate.unobtrusive.js"></script>s
+<link rel="stylesheet" type="text/css" href="~/Content/Login.css" />
+
+<h2>InsertQuestion</h2>
+@{ 
+    Html.BeginForm("InsertQuestion", "Exam", FormMethod.Post, new { @id = "frmInsertQuestion", @enctype = "multipart/form-data" });
+}
+<section class="globle">
+    <div class="BodyContent">
+        <div class="row header">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 heding gFontColor">
+                &nbsp;&nbsp;InsertQuestion
+            </div>
+        </div>
+        @Html.ValidationSummary(true)
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xm-12">
+                <div class="container-fluid">
+                   <br />
+                    <div class="inputStyle">
+                        @TempData["msg"]
+                        <div class="row">
+                            <label class="inputTitle" id="errorEmail">Question</label>
+                        </div>
+                        <div class="row">
+                            @Html.TextAreaFor(m => m.Question, new { @class = "form-control inputStyle BorderBlack", @id = "txtQuestion", @placeholder = "Question", tabindex = "4" })
+                            <div class="errorMsg">
+                                @Html.ValidationMessageFor(m => m.Question)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                                <label class="inputTitle" id="errorQuestion">Answer</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 rmPadding">
+                                <label class="inputTitle" id="errorLName">Option1</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 rmPadding">
+                                <label class="inputTitle" id="errorLName">Option2</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 rmPadding">
+                                <label class="inputTitle" id="errorLName">Option3</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 rmPadding">
+                                @Html.TextBoxFor(m => m.Answer, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "Answer", @placeholder = "Answer", tabindex = "1" })
+                                <div class="errorMsg">
+                                    @Html.ValidationMessageFor(m => m.Answer)
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 rmPadding">
+                                @Html.TextBoxFor(m => m.option1, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "option1", @placeholder = "option1", tabindex = "2" })
+                                <div class="errorMsg">
+                                    @Html.ValidationMessageFor(m => m.option1)
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 rmPadding">
+                                @Html.TextBoxFor(m => m.option2, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "option2", @placeholder = "option2", tabindex = "2" })
+                                <div class="errorMsg">
+                                    @Html.ValidationMessageFor(m => m.option2)
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 rmPadding">
+                                @Html.TextBoxFor(m => m.option3, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "option3", @placeholder = "option3", tabindex = "2" })
+                                <div class="errorMsg">
+                                    @Html.ValidationMessageFor(m => m.option3)
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>                    
+                </div>
+                <input type="submit" class="btn-default btn-lg btnStyle gBGColor gBorderColor" id="btnSubmit" value="Insert" name="Insert" onclick="return formValidate();" style="color:white;" />
+            </div>
+        </div>
+        @{ Html.EndForm(); }
+    </div>
+</section>
