@@ -1,0 +1,48 @@
+﻿@model OnlineEducation.Models.UserModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_OtherMaster.cshtml";
+}
+
+<h2>Forgot Password</h2>
+<script src="~/scripts/jquery-1.9.1.js"></script>
+<script src="~/scripts/LoginValidation.js"></script>
+<script src="~/scripts/OTPConfirmation.js"></script>
+<script type="text/javascript">
+    var link = "@Url.Action("Confirmation", "ForgotPassword", new { t = true })";
+    var link1 = "@Url.Action("SendOTPforJson", "ForgotPassword")";
+    var link2 = "@Url.Action("ChangePassword", "ForgotPassword")";
+    var link3 = "@Url.Action("expire", "ForgotPassword", new { t = true })";
+    var lsUserNameCheckUrl = '@Url.Action("CheckUserNameExist", "Login")';
+</script>
+<body style="margin:10% 10%">
+    <div class="container-fluid">
+        @{
+            if (TempData["FEmail"] == null)
+            {
+                Html.BeginForm("SendOTP", "ForgotPassword", FormMethod.Post);
+                <div id="GetEmail" style="width:30%">
+                    Enter Your Email :
+                    <label class="errorMsg" style="display:none;" id="errorUserName2"></label>
+                    <label class="errorMsg" id="errorUserName">@Html.ValidationMessageFor(m => m.Email)</label>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-sm", @id = "UserName", @name= "txtEmail", @placeholder = "Ener Your Email to Recieve OTP", tabindex = "4" })                   
+                     <br /><input type="submit" name="btnEmail" class="btn btn-primary" id="btnEmail" value="Send" />
+                </div>
+                Html.EndForm();
+            }
+            else
+            {
+                Html.BeginForm("Confirmation", "ForgotPassword", FormMethod.Post);
+                <div id="Confirm" style="width:40%">
+                    <h6>The OTP will Expire in 5 minutes</h6>
+                    @Html.Hidden("OTP",TempData["OTP"], new { @id = "OTP" })
+                    @Html.Hidden("Email", TempData["FEmail"], new { @id = "Email" })
+                    <input type="text" name="txtOTP" id="txtOTP" class="form-control input-sm"/><br />
+                    <input type="button" value="Resend" class="btn btn-info" id="Resend" name="Resend" />
+                    <input type="button" value="Verify" id="VerifyF" class="btn btn-primary" name="Verify" style="margin-left:5%"/>
+                </div>
+                Html.EndForm();
+            }
+        }
+    </div>
+</body>

@@ -1,0 +1,152 @@
+﻿@model OnlineEducation.Models.UserProfileModel
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Areas/Users/Views/Shared/_UserMasterPage.cshtml";
+}
+
+<h2>Profile</h2>
+@{
+    if (Model.loProfileData.Count() != 0)
+    {
+        <div class="container-fluid" style="height:auto;border:2px solid grey;border-radius:5px;">
+            <div class="row" style="padding-left:10px;background-color:gray;color:white;">
+                <h4>personal Info</h4>
+            </div>
+            <div class="row" style="padding:10px 10px 10px 10px;">
+                <div id="personalInfo">
+                    <div style="width:20%;float:left;">
+                        <img class="img-responsive img-circle" height="200" src="~/Uploads/Profile/@Model.loProfileData[0].ProfileImg" width="200" />
+                    </div>
+                    <div style="width:80%;display:inline-block">
+                        <table class="table table-responsive table-hover">
+                            <tr>
+                                <td>
+                                    UserID
+                                </td>
+                                <td>
+                                    @Model.loProfileData[0].UserID
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Full Name</td>
+                                <td>@Model.loProfileData[0].FullName</td>
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td>@Model.loProfileData[0].Gender</td>
+                            </tr>
+                            <tr>
+                                <td>User Type</td>
+                                <td>@Model.loProfileData[0].UserType</td>
+                            </tr>
+                            <tr>
+                                <td> City </td>
+                                <td>@Model.loProfileData[0].CityName</td>
+                            </tr>
+                            <tr>
+                                <td> State </td>
+                                <td>@Model.loProfileData[0].StateName</td>
+                            </tr>
+                            <tr>
+                                <td> Country </td>
+                                <td>@Model.loProfileData[0].CountryName</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="container-fluid" style="height:auto;border:2px solid grey;border-radius:5px;">
+            <div class="row" style="padding-left:10px;background-color:gray;color:white;">
+                <h4>Queries Posted</h4>
+            </div>
+            <div class="row" style="padding:10px 10px 10px 10px;">
+                @foreach (var data in Model.loProfileData)
+                {
+                    if (Model.loProfileData[0].QueryID != null)
+                    {
+                        //@data.QueryID
+                        <div style="border-bottom:1px solid black">
+                            <div style="display:inline;float:left">
+                                <span style="text-align:center;box-sizing: content-box;border:1px solid black;width:20px;height:17px;margin-top:2px;margin-right:5px;float:left;">@data.QRaises</span>
+                                <a href="@Url.Action("Answer", "Query", new { area = "Users", QueryID = data.QueryID })">@data.Query</a>
+                            </div>
+                            <div style="float:right;">
+                                @data.QueryTime.Value.ToShortDateString()
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div align="center"> Yet Not Posted Any Queries </div>
+                    }
+                }
+            </div>
+        </div>
+        <br />
+        <div class="container-fluid" style="height:auto;border:2px solid grey;border-radius:5px;">
+            <div class="row" style="padding-left:10px;background-color:gray;color:white;">
+                <h4>Results</h4>
+            </div>
+            <div class="row" style="padding:10px 10px 10px 10px;">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> Exam ID </th>
+                            <th> Result ID </th>
+                            <th>Subject</th>
+                            <th>Obtained Marks</th>
+                            <th> Result </th>
+                            <th>Grade</th>
+                            <th>Rank</th>
+                            <th>Time Taken</th>
+                            <th>Global Grade</th>
+                            <th>Global Rank</th>
+                            <th>Result Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var data in Model.loProfileData)
+                        {
+                            if (Model.loProfileData[0].ResultID != null)
+                            {
+                                <tr>
+                                    <td> @data.ExamTypeID </td>
+                                    <td> @data.ResultID</td>
+                                    <td> @data.Subject</td>
+                                    <td> @data.ObtainedMarks</td>
+                                    <td> @data.Result </td>
+                                    <td> @data.Grade</td>
+                                    <td> @data.Rank</td>
+                                    <td> @data.TimeTaken</td>
+                                    <td> @data.GlobalGrade</td>
+                                    <td> @data.GlobalRank</td>
+                                    <td> @data.CreatedOn.Value.ToShortDateString()</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td align="center" colspan="11"> Yet not Given any Exam</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
+        <div class="container-fluid" style="height:auto;border:2px solid grey;border-radius:5px;">
+            <div class="row" style="padding-left:10px;background-color:gray;color:white;">
+                <h4> Aspects </h4>
+            </div>
+            <div class="row" style="padding:10px 10px 10px 10px;">
+                Total Tutorials Read @Model.loProfileData[0].Tutorials
+                <br />
+                 Total Answers Given @Model.loProfileData[0].AnswersGiven
+                <br />
+            </div>
+        </div>        
+    }
+}

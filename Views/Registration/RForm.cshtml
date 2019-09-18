@@ -1,0 +1,165 @@
+﻿@model OnlineEducation.Models.UserModel
+@{
+    ViewBag.Title = "Create Account";
+    Layout = "~/Views/Shared/_OtherMaster.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/RFormStyle.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+@*<script src="~/scripts/script.js"></script>*@
+<script src="~/scripts/jquery-1.9.1.js"></script>
+<script src="~/scripts/bootstrap.min.js"></script>
+<script src="~/scripts/jquery.validate.js"></script>
+<script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+<body class="globle" style="margin-top:80px;">
+    <div class="col-lg-12 col-md-12 col-xs-12" style="top:0px;background-image:url(../../Images/rform.jpg);background-attachment:fixed;background-size: contain;background-repeat:repeat">
+        <div style="top:10px;" class="col-lg-5 col-lg-offset-4 col-sm-offset-1 col-md-offset-4 col-md-5 col-sm-10 col-xm-12 Mobile">
+            <div class="frmBody" style="margin-right:0px;">
+                <div class="headMaster gFontColor">
+                    <h3><i class="glyphicon glyphicon-user"></i>Create Account</h3>
+                </div>
+                <section class="container-fluid">
+                    @{
+                        Html.BeginForm("AddUser", "Registration", FormMethod.Post, new { @id = "FrmRegistration" });
+                    }
+                    @Html.ValidationSummary(true)
+
+                    <div class="container-fluid">
+                        <!--Two Text  Box For First And Last Name-->
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label class="errorMsg" id="errorFName">@Html.ValidationMessageFor(m => m.FName)</label>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <label class="errorMsg" id="errorLName">@Html.ValidationMessageFor(m => m.LName)</label>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    @Html.TextBoxFor(m => m.FName, new { @class = "form-control input-md gBorderColor2 gFontColor", @id = "vFName", @placeholder = "First Name", tabindex = "1" })
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    @Html.TextBoxFor(m => m.LName, new { @class = "form-control input-md gBorderColor2 gFontColor", @id = "vLName", @placeholder = "Last Name", tabindex = "2" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Redio Butten For Gender-->
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 padRemove">
+                                <label class="rdbSize gBorderColor" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.Gender, "M", new { @class = "radio-inline gFontColor", @id = "rdbGreetM", tabindex = "3", @onclick = "GreetMsgM();" })&nbsp;Male</label>
+                                <label class="rdbSize gBorderColor" style="cursor:pointer;">&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(m => m.Gender, "F", new { @class = "radio-inline ", @id = "rdbGreetF", tabindex = "3", @onclick = "GreetMsgF();" })&nbsp;Female</label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <label class="errorMsg" style="color:green;font-size:14px;" id="msgGreet"></label>
+                            </div>
+                        </div>
+
+                        <!--Text Box For Email-->
+                        <div class="row">
+                            <label class="errorMsg" style="display:none" id="errorEmail2"></label>
+                            <label class="errorMsg" id="errorEmail">@Html.ValidationMessageFor(m => m.Email)</label>
+
+                            <div class="row input-group mgnRemove" data-toggle="tooltip" data-placement="top" data-html="true" title="Email Will be Use For Login">
+                                <span class="input-group-addon input-md gBorderColor2 gFontColor"><i class="glyphicon glyphicon-envelope"></i></span>
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-md gBorderColor2 gFontColor", @id = "txtEmail", @placeholder = "Email", tabindex = "4" })
+                            </div>
+                        </div>
+
+                        <!--Text Box For Mobile-->
+                        <div class="row">
+                            <label class="errorMsg" style="display:none;" id="errorMobile2"></label>
+                            <label class="errorMsg" id="errorMobile">@Html.ValidationMessageFor(m => m.MobileNo)</label>
+                            <div class="row input-group mgnRemove" data-toggle="tooltip" data-placement="top" data-html="true" title="Mobile Number Or Email Both Will be Use For Login">
+                                <span class="input-group-addon input-md gBorderColor2 gFontColor"><i class="glyphicon glyphicon-phone"></i></span>
+                                @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control input-md gBorderColor2 gFontColor", @id = "txtMobile", @placeholder = "Mobile Number", @maxlength = "10", tabindex = "5" })
+                            </div>
+                        </div>
+
+
+                        <!-- Security Quetion -->
+                        <div class="row">
+                            <label class="errorMsg" id="errorPassword">@Html.ValidationMessageFor(m => m.SecQue)</label>
+                            <div class="row input-group mgnRemove">
+                                <span class="input-group-addon input-md gBorderColor2 gFontColor"><i class="glyphicon glyphicon-question-sign"></i></span>
+                                @Html.DropDownListFor(m => m.SecQue,
+                                   new List<SelectListItem>
+                                   {
+                                          new SelectListItem {Text="--- Select Security Quetion ---", Value="", Selected=true},
+                                          new SelectListItem {Text="What Is Your First Mobile Number?"},
+                                          new SelectListItem {Text="What is Your Mother's Maiden Name?"},
+                                          new SelectListItem {Text="What Is Your Favourite Colour?"},
+                                          new SelectListItem {Text="What Is Your First School Name?"},
+                                          new SelectListItem {Text="Who Is Your Best Friend?"}
+                                   },
+                                   new { @class = "form-control dropdown input-md gBorderColor2", tabindex = "6", @style = "Font-size:12px;" })
+                            </div>
+                        </div>
+
+                        <!-- Text Box For Answer -->
+                        <div class="row" id="Answer">
+                            <label class="errorMsg" id="errorRePass">@Html.ValidationMessageFor(m => m.SecAns)</label>
+                            <div class="row input-group mgnRemove">
+                                <span class="input-group-addon input-md gBorderColor2 gFontColor"><i class="glyphicon glyphicon-font"></i></span>
+                                @Html.TextBoxFor(m => m.SecAns, new { @class = "form-control input-md gBorderColor2 gFontColor", @id = "txtAnswer", @placeholder = "Enter Security Answer", @maxlength = "10", tabindex = "7" })
+                            </div>
+                        </div>
+
+                        <!--Text Box For Password-->
+                        <div class="row">
+                            <label class="errorMsg" id="errorPassword">@Html.ValidationMessageFor(m => m.UPassword)</label>
+                            <div class="row input-group mgnRemove">
+                                <span class="input-group-addon input-md gBorderColor2 gFontColor"><i class="glyphicon glyphicon-lock"></i></span>
+                                @Html.PasswordFor(m => m.UPassword, new { @class = "form-control input-md gBorderColor2 gFontColor", @id = "txtPassword", @MaxLength = 20, @placeholder = "Password", tabindex = "8" })
+                            </div>
+                        </div>
+
+                        <!-- Text Box For Repassword -->
+                        <div class="row">
+                            <label class="errorMsg" id="errorRePass">@Html.ValidationMessageFor(m => m.Repassword)</label>
+                            <div class="row input-group mgnRemove">
+                                <span class="input-group-addon input-md gBorderColor2 gFontColor"><i class="glyphicon glyphicon-lock"></i></span>
+                                @Html.PasswordFor(m => m.Repassword, new { @class = "form-control input-md gBorderColor2 gFontColor", @id = "txtRepassword", @MaxLength = 20, @placeholder = "Repassword", tabindex = "9" })
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="row">
+                            <div class="row mgnRemove">
+                                <input type="submit" class="form-control input-md btn btn-primary" name="btnSubmit" id="btnSubmit" onclick="return formValidate();" tabindex="10" value="Sign In" />
+                            </div>
+                        </div>
+
+                        <div class="row gFontColor" style="width:200px;margin-top:5px; margin-bottom:5px;" data-toggle="tooltip" data-placement="right" data-html="true" title="Let's We Go For Login">
+                            @Html.ActionLink("Already Have an Account ?", "Login", "Login")
+                        </div>
+                    </div>
+                    @{ Html.EndForm(); }
+                </section>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var lsEmailCheckUrl = '@Url.Action("CheckEmailExist", "Registration")';
+    var lsMobileCheckUrl = '@Url.Action("CheckMobileExist", "Registration")';
+    function GreetMsgM() {
+        if ($("#rdbGreetM").checked = 1) {
+            $("#msgGreet").html('Hello Mr.' + $("#vFName").val());
+        }
+    }
+
+    function GreetMsgF() {
+        if ($("#rdbGreetF").checked = 1) {
+            $("#msgGreet").html('Hello Miss.' + $("#vFName").val());
+        }
+    }
+
+    $(document).ready(function () { $('[data-toggle="tooltip"]').tooltip(); });
+
+</script>
+<script src="~/scripts/Validation.js"></script>

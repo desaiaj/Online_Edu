@@ -1,0 +1,137 @@
+﻿@model OnlineEducation.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_OtherMaster.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/Login.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+<script src="~/scripts/jquery-1.9.1.js"></script>
+<script src="~/scripts/bootstrap.min.js"></script>
+<script src="~/scripts/jquery.validate.js"></script>
+<script src="~/scripts/jquery.validate.unobtrusive.js"></script>s
+
+<body class="globle">
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 col-xm-12 Mobile frmBody">
+        <div class="headMaster gFontColor">
+            <h3>&nbsp;<i class="glyphicon glyphicon-user"></i>&nbsp;Sign In</h3>
+
+        </div>
+
+        <section class="container-fluid" id="content">
+
+            @Html.ValidationSummary(true)
+            <br />
+            @{
+                if (ViewBag.error != null)
+                {
+                    @Html.Label("User Name Or Password Is Wrong..!", new { @class = "errorMsg", @Style = "margin-left:-10px;font-size:16px;" });
+                }
+                if (ViewBag.log != null)
+                {
+                    Html.BeginForm("LogoutFromAll", "Login", FormMethod.Post, new { @id = "FrmLogin" });
+                }
+                else {
+                    Html.BeginForm("LoginCredentials", "Login", FormMethod.Post, new { @id = "FrmLogin" });
+                }
+            }
+
+
+            <!--Text Box For Email-->
+            <div class="row">
+                <label class="errorMsg" style="display:none;" id="errorUserName2"></label>
+                <label class="errorMsg" id="errorUserName">@Html.ValidationMessageFor(m => m.LoginID)</label>
+                <div class="row input-group mgnRemove">
+                    <span class="input-group-addon input-md gBorderColor gFontColor"><i class="glyphicon glyphicon-envelope"></i></span>
+                    @Html.TextBoxFor(m => m.LoginID, new { @class = "form-control input-md gBorderColor gFontColor", @id = "UserName", @placeholder = "Enter User Name or Mobile Number", tabindex = "1", @onblur = "checkEmail(document.getElementById('UserID'),document.getElementById('errorEmail'),'Check Your User ID.');" })
+                </div>
+            </div>
+
+
+            <!--Text Box For Password-->
+            <div class="row">
+                <label class="errorMsg" style="display:none;" id="errorPassword2"></label>
+                <label class="errorMsg" id="errorPassword">@Html.ValidationMessageFor(m => m.UPassword)</label>
+                <div class="row input-group mgnRemove">
+                    <span class="input-group-addon input-md gBorderColor gFontColor"><i class="glyphicon glyphicon-lock"></i></span>
+                    @Html.TextBoxFor(m => m.UPassword, new { @class = "form-control input-md gBorderColor gFontColor", @id = "txtPassword", @MaxLength = 20, @Type = "password", @placeholder = "Enter Password", tabindex = "2", @onblur = "" })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                &nbsp;&nbsp;<label style="cursor:pointer;margin-bottom:0px;" data-toggle="tooltip" data-placement="right" data-html="true" title="Note : User Name And Password Will be Stored For 7 Days"><input type="checkbox" value="Remember" name="RememberMe" id="RememberMe" tabindex="3" /> Remember Me</label>
+            </div>
+            <br />
+            <div class="row">
+                <input type="submit" id="btnSubmit" class="form-control input-md btn gBGColor" style="color:white;" name="btnSubmit" tabindex="4" value="Login" onclick="return formValidate();" />
+                @{
+                    if (ViewBag.log != null)
+                    {
+                        <div class="container">
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">LogOut From All System</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>
+                                                @Html.Label("You Are Logged in into another System please Logout From All the system", new { @class = "errorMsg", @Style = "margin-left:-10px;font-size:16px;" })
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input type="submit" name="LogOut" class="btn btn-default" value="Yes, LogOut" id="LogOutAll" />
+                                           @* <button type="submit" class="btn btn-default" id="Yes" data-dismiss="modal">Yes, LogOut</button>*@
+                                            <button type="button" class="btn btn-default" id="No" data-dismiss="modal">No, Thanks</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            $(document).ready(function () {
+                                // Show the Modal on load
+                                $("#myModal").modal("show");
+                            });
+                        </script>
+                    }
+                }
+            </div>
+            <div class="row gFontColor" style="margin-top:5px;margin-bottom:5px;">
+                <div style="width:150px;display:inline;" data-toggle="tooltip" data-placement="right" data-html="true" title="Let's We Create New Account">
+                    @Html.ActionLink("Are You New Here?", "Index", "Registration")
+                </div>
+                <div style="float:right;">
+                    @Html.ActionLink("Forgot Password?","Index", "ForgotPassword")
+                </div>
+            </div>
+            @{ Html.EndForm(); }
+        </section>
+
+    </div>
+</body>
+<script>
+
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        //$('#Yes').click(function () {
+        //    $('#Yes').attr('disabled', 'disabled');
+        //});
+        $('#No').click(function () {
+            var action="@Url.Action("LoginCredentials", "Login")";            
+            $('#FrmLogin').attr('action', action);
+        });
+    });
+    var lsUserNameCheckUrl = '@Url.Action("CheckUserNameExist", "Login")';
+
+</script>
+
+<script src="~/scripts/LoginValidation.js"></script>

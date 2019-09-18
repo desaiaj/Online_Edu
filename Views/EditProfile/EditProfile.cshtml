@@ -1,0 +1,267 @@
+﻿@model OnlineEducation.Models.UserModel
+@{
+    ViewBag.Title = "Edit Profile";
+    Layout = "~/Areas/Users/Views/Shared/_UserMasterPage.cshtml";
+}
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title>EditProfile</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/EditProfileStyle.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+    <link href="~/Content/bootstrap-datetimepicker.css" rel="stylesheet" />
+
+    
+    <script src="~/scripts/jquery-1.9.1.js"></script>
+    <script src="~/scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/scripts/bootstrap.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/jquery.validate.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/scripts/bootstrap-datetimepicker.js"></script>
+    <script src="~/scripts/bootstrap-datetimepicker.fr.js"></script>
+    <script src="~/scripts/datetimepickerSetting.js"></script>
+    @*<script>
+        var link ='@Url.Action("CheckUpload", "EditProfile")'
+    </script>
+    <script src="~/scripts/CheckImg.js"></script>*@
+
+<body>
+
+    <input type="hidden" id="dtp_input2" value="" />
+    <section class="globle"> 
+    <div class="ProfileBody">
+          <div class="row header">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 heding gFontColor">
+                  <i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;My Profile
+              </div>
+          </div>
+          @{
+                  Html.BeginForm("EditProfile", "EditProfile", FormMethod.Post, new { @id = "frmEditProfile", @enctype = "multipart/form-data" });
+          }
+          @Html.ValidationSummary(true)
+        
+           <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xm-12">
+                   <div class="container-fluid">
+                         <div class="row">
+                               <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
+                                     <div class="" >                        
+                                         <img src="~/Uploads/Profile/@Model.ProfImg" id="TempImg" class="proIMG" />
+                                     </div>
+                                     <br />
+                                     @Html.TextBoxFor(m => m.ProfileImg, new { @class = "", Type = "file", @id = "SelectImg", tabindex = "1" })
+                                     <br />
+                                     <br />
+                                   <label class="rdbSize gBorderColor FontBlack">&nbsp;&nbsp;&nbsp;
+                                   @Html.RadioButtonFor(m => m.Gender, "M", new { @class = "radio-inline", @id = "rdbGreetM", tabindex = "", @checked = "Checked" })&nbsp;Male</label>
+                                   <br />
+                                   <label class="rdbSize gBorderColor FontBlack">&nbsp;&nbsp;&nbsp;
+                                   @Html.RadioButtonFor(m => m.Gender, "F", new { @class = "radio-inline", @id = "rdbGreetF", tabindex = "" })&nbsp;Female</label>
+
+                                </div>
+                               
+                         </div>
+                         <div class="row">
+                             
+                         </div>
+                   </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xm-12" style="margin-right:15px !important;margin-left:-15px !important;">
+                  <div class="container-fluid">
+                      <br />
+                      <br />
+                      <div>
+                          <div class="row">
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 rmPadding">
+                                  <label class="inputTitle" id="errorFName">First Name</label>
+                              </div>
+                              
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 rmPadding">
+                                  <label class="inputTitle" id="errorLName">Last Name</label>
+                              </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 rmPadding">
+                                  @Html.TextBoxFor(m => m.FName, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "vFName", @placeholder = "First Name", tabindex = "1" })
+                                  <div class="errorMsg">
+                                      @Html.ValidationMessageFor(m => m.FName)
+                                  </div>
+
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 rmPadding">
+                                  @Html.TextBoxFor(m => m.LName, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "vLName", @placeholder = "Last Name", tabindex = "2" })
+                                  <div class="errorMsg">
+                                      @Html.ValidationMessageFor(m => m.LName)
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                      <br />
+
+                      <!--Text Box For DOB-->
+                      <div class="">
+                          <div class="row">
+                              <label class="inputTitle">DOB</label>
+                          </div>
+                          <div class="row date form_date" data-date="" data-date-format="dd-mm-yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                              @Html.TextBoxFor(m => m.DoB, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "DoB", @placeholder = "DD - MM - YYYY", tabindex = "3" , @readonly = "readonly" })
+                              <span class="add-on"><i class="icon-th"></i></span>
+                          </div>
+                          
+                      </div>
+                      <br />
+
+                      <!--Text Box For Email-->
+                      <div class="">
+                          <div class="row">
+                              <label class="inputTitle" id="errorEmail">Email</label>
+                          </div>
+                          <div class="row">
+                              @Html.TextBoxFor(m => m.Email, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "txtEmail", @placeholder = "Email", tabindex = "4" })
+                              <div class="errorMsg">
+                                  @Html.ValidationMessageFor(m => m.Email)
+                              </div>
+                          </div>
+                      </div>
+                      <br />
+
+                      <!--Text Box For Mobile-->
+                      <div class="">
+                          <div class="row">
+                              <label class="inputTitle" id="errorMobile">Mobile</label>
+                          </div>
+                          <div class="row">
+                              @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "txtMobile", @placeholder = "Mobile Number", @maxlength = "10", tabindex = "5" })
+                              <div class="errorMsg">
+                                  @Html.ValidationMessageFor(m => m.MobileNo)
+                              </div>
+                          </div>
+
+                      </div>
+                      <br />
+
+                      <div>
+                          <div class="row">
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rmPadding">
+                                  <label class="inputTitle" id="errorFName">City</label>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rmPadding">
+                                  <label class="inputTitle" id="errorLName">State</label>
+                                  
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rmPadding">
+                                  <label class="inputTitle" id="errorLName">Contry</label>
+                                  
+                              </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rmPadding">
+                                  @Html.TextBoxFor(m => m.City, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "City", @placeholder = "City", tabindex = "6" })
+                                  <div class="errorMsg">
+                                      @Html.ValidationMessageFor(m => m.City)
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rmPadding">
+                                  @Html.TextBoxFor(m => m.State, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "State", @placeholder = "State", tabindex = "7", @readonly = "readonly" })
+                                  <div class="errorMsg">
+                                      @Html.ValidationMessageFor(m => m.State)
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 rmPadding">
+                                  @Html.TextBoxFor(m => m.Country, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "Country", @placeholder = "Contry", tabindex = "8", @readonly = "readonly" })
+                                  <div class="errorMsg">
+                                      @Html.ValidationMessageFor(m => m.Country)
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <br />
+
+                      <!--Text Box For Password-->
+                      <div>
+                          <div class="row">
+                              <label class="inputTitle" id="errorPassword">Password</label>
+                          </div>
+                          <div class="row">
+                              <div class="input-group">
+                                  @Html.TextBoxFor(m => m.UPassword, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "txtPassword", Type = "password", @placeholder = "Enter New Password", tabindex = "9" @*, @readonly = "readonly"*@ })
+                                  <span class="input-group-addon input-lg BorderBlack">
+                                      <a><i class="glyphicon glyphicon-book"></i></a>
+                                  </span>
+                              </div>
+                              <div class="errorMsg">
+                                  @Html.ValidationMessageFor(m => m.UPassword)
+                              </div>
+                          </div>
+                      </div>
+                      <br />
+                      <div>
+                          <div class="row">
+                              <label class="inputTitle" id="errorPassword">Confirm Password</label>
+                          </div>
+                          <div class="row">
+                               @Html.PasswordFor(m => m.Repassword, new { @class = "form-control input-lg inputStyle BorderBlack", @id = "txtPassword", @placeholder = "Re-Enter Password", tabindex = "10" })
+                               <div class="errorMsg">
+                                  @Html.ValidationMessageFor(m => m.Repassword)
+                              </div>
+                          </div>
+                      </div>
+                      <br />
+
+                  </div>
+                  <input type="submit" class="btn-default btn-lg btnStyle gBGColor gBorderColor" id="btnSubmit" value="Update" name="Update" onclick="return formValidate();" style="color:white;" />
+
+              </div>
+              </div>
+          <div class="row header">
+                
+                <br />
+
+          </div>
+        @{ Html.EndForm(); }
+    </div>
+    </section>
+</body>
+
+
+<script>
+    var link = '@Url.Action("CheckIsImage", "EditProfile")';
+</script>
+<script src="~/scripts/CheckImg.js"></script>
+
+<script type="text/javascript">
+
+    $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+        showMeridian: 1
+    });
+	$('.form_date').datetimepicker({
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+	$('.form_time').datetimepicker({
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 1,
+		minView: 0,
+		maxView: 1,
+		forceParse: 0
+    });
+</script>

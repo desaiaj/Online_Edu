@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewBag.Title = "AboutUs";
+    Layout = "~/Views/Shared/_OtherMaster.cshtml";
+}
+
+<head>
+    <title>About - Stack Overflow - Stack Overflow</title>
+    <link href="~/Content/about.css" rel="stylesheet" />
+    <link href="~/Content/hiring.css" rel="stylesheet" />
+
+    <script src="~/scripts/jquery-1.9.1.min.js"></script>
+
+    <script src="~/scripts/fancybox/jquery.fancybox-1.3.4.js"></script>
+    <script src="~/scripts/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+    <link href="~/scripts/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        $(document).ready(function () {            
+            $("a#1").fancybox({
+                    'opacity': true,
+                    'overlayShow': false,
+                    'transitionIn': 'elastic',
+                    'transitionOut': 'none'
+            });
+            $("a#2").fancybox({
+                'opacity': true,
+                'overlayShow': false,
+                'transitionIn': 'elastic',
+                'transitionOut': 'none'
+            });
+
+            $("a#3").fancybox({
+                'opacity': true,
+                'overlayShow': false,
+                'transitionIn': 'elastic',
+                'transitionOut': 'none'
+            });
+            $("a#4").fancybox({
+                'opacity': true,
+                'overlayShow': false,
+                'transitionIn': 'elastic',
+                'transitionOut': 'none'
+            });
+            $("a#5").fancybox({
+                'opacity': true,
+                'overlayShow': false,
+                'transitionIn': 'elastic',
+                'transitionOut': 'none'
+            });
+            $("a#6").fancybox({
+                'opacity': true,
+                'overlayShow': false,
+                'transitionIn': 'elastic',
+                'transitionOut': 'none'
+            });          
+
+            });
+        </script>
+    <noscript id="noscript-css">&lt;style type="text/css"&gt;body,.so-header{margin-top:1.9em}&lt;/style&gt;</noscript>
+</head>
+<body style="top:70px;padding-top:89px;">
+    <div class="container">
+        <div id="content">
+            <div class="section section-about-us">
+                <div class="hero-image-container">
+                    <img src="~/Images/bg-so-header.jpg" height="380" />
+                </div>
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="about-copy">
+                            <p>Developers trust Online Education System to help solve coding problems. We’re committed to making the internet a better place, and our products aim to enrich the lives of developers as they grow and mature in their careers.</p>
+                            <p>We believes that study should be not <del> Burden </del> on any one and no one <del> HAVE </del> to study but every one love to study and learning</p>
+                        </div>
+                    </div>
+                </div><!-- /row -->
+                <!-- Imgs -->
+                <div id="gallery" class="row gallery">
+                    <a id="1" href="~/Images/1.jpg" rel="group1" class="photo">
+                        <img src="~/Images/1.jpg" height="250" />
+                    </a>
+                    <a id="2" href="~/Images/0.jpg" rel="group1" class="photo">
+                        <img src="~/Images/0.jpg" class="photo" />
+                    </a>
+                    <a id="3" href="~/Images/3.jpg" rel="group1" class="photo">
+                        <img src="~/Images/3.jpg" />
+                    </a>                    
+                    <a id="4" href="~/Images/4.jpg" rel="group1" class="photo">
+                        <img src="~/Images/4.jpg" />
+                    </a>
+                    <a id="5" href="~/Images/5.jpg" rel="group1" class="photo">
+                        <img src="~/Images/5.jpg" />
+                    </a>
+                    <a id="6" href="~/Images/6.jpg" rel="group1" class="photo">
+                        <img src="~/Images/6.jpg" />
+                    </a>
+                </div>
+                <!-- /Imgs -->
+            </div>
+            <!-- /Section: about us -->
+            <!-- Section: we build things -->
+            <div class="section section-timeline">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-6 col-md-push-4 text">
+                            <h2>Online Education System Timeline</h2>
+                            <div class="timeline-events">
+                                <ul>
+                                    <lh>01/01/2017</lh>
+                                    <li> After analysis And researching of Every Educational Site and Educational Resources Two Students Decided to Make A system which is not Educational but can also Fullfill the statement learn with fun and Which can provide the best way to learn and solve complex puzzels with help of World Wide Peoples </li>
+                                    <li> This two Students Are Ajay Desai And Brijesh Navadiya </li>
+                                </ul>
+                                <ul>
+                                    <lh>25/01/2017</lh>
+                                    <li>Ajay Desai And Brijesh Navadiya Started to develope System</li>
+                                </ul>
+                                <ul>
+                                    <lh>28/4/2017</lh>
+                                    <li> The System Is almost Done With the Almost Drimmed Functionalities but the System is Stil In Developement to provide the best Experience to the End Users</li>
+                                </ul>
+                                <ul>
+                                    <lh>30/04/2017</lh>
+                                    <li> For The Best Experience,Also Decided to Make A Android App For the Users So they can be connected for ever with the community</li>
+                                </ul>
+                                <ul>
+                                    <lh> Present Day </lh>
+                                    <li> Trying to Giving The best Experience to the Best Users with providing Updates to the system </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Section: Timeline -->
+                    <!-- Section: Statistics -->
+                    <div class="section section-statistics">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2>Current Network Statistics</h2>
+                            </div>
+                        </div><!-- /row -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p>
+                                    Registered Users <span class="big-number">@TempData["U"] </span>
+                                </p>
+                            </div> <!-- /col -->
+                            <div class="col-md-4">
+                                <p>
+                                    Questions asked <span class="big-number">@TempData["Q"]</span>
+                                </p>
+                            </div> <!-- /col -->
+                            <div class="col-md-4">
+                                <p>
+                                    Answers Submitted <span class="big-number">@TempData["TA"]</span>
+                                </p>
+                            </div> <!-- /col -->
+                        </div> <!-- /row -->
+                    </div><!-- /Section: Statistics -->
+                    <!-- Section: Offices -->
+                    <div class="section section-offices">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h2>Our Offices</h2>
+                                <p>
+                                    We currently started with 2 employs. The company is committed to diversity in the workplace and in future We will <a href="http://stackoverflow.com/company/work-here">hire</a>.
+                                </p>
+                                <p>
+                                    Employees<span class="big-number">2</span>
+                                </p>
+                            </div> <!-- /col -->
+                            <div class="col-md-7 map-wrapper">
+                                <img class="london" src="~/Images/london.svg" />
+                                <img src="~/Images/map.png" />
+                            </div> <!-- /col -->
+                        </div>
+                    </div>
+                    <!-- /Section: Offices -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

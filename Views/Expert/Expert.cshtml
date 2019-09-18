@@ -1,0 +1,71 @@
+﻿@model OnlineEducation.Models.ExpertModel
+@{
+    ViewBag.Title = "Expert";
+    Layout = "~/Areas/Users/Views/Shared/_UserMasterPage.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/RFormStyle.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/bootstrap.css" />
+<script src="~/scripts/script.js"></script>
+<script src="~/scripts/jquery-1.9.1.js"></script>
+<script src="~/scripts/bootstrap.min.js"></script>
+<script src="~/scripts/jquery.validate.js"></script>
+<script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+<script>
+    var link = "@Url.Action("CheckEligibility", "Expert", new { area = "" })";
+    var link2 = "@Url.Action("Index", "Home", new { area = "Users" })";
+</script>
+<h2>Request Expert</h2>
+
+<body class="globle">
+    <div class="col-lg-5 col-lg-offset-4 col-md-5 col-md-offset-4 col-sm-10 col-sm-offset-1 col-xm-12 Mobile">
+        <div class="frmBody" style="margin-right:0px;margin-top:10px !important;">
+            <div class="headMaster gFontColor">
+                <h3><i class="glyphicon glyphicon-user"></i>Request Expert</h3>
+            </div>
+            <br />
+            <section class="container-fluid">
+                @{
+                    Html.BeginForm("BecomeExpert", "Expert", FormMethod.Post, new { @id = "FrmExpert" });
+                }
+                @Html.ValidationSummary(true)
+
+                <div class="container-fluid">
+                    <div class="row">                       
+                        <div class="row form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <label class="errorMsg">@Html.ValidationMessageFor(m => m.Expertise)</label>
+                                @Html.TextBoxFor(m => m.Expertise, new { @class = "form-control input-md gBorderColor2 gFontColor", @id = "vExpertise", @placeholder = "Enter Your Expertise", tabindex = "1" })
+                            </div>
+                            <div class="col-md-6 col-md-6 col-sm-6 col-xs-6">
+                                <label class="errorMsg">@Html.ValidationMessageFor(m => m.Qualification)</label>
+                                @Html.TextBoxFor(m => m.Qualification, new { @class = "form-control input-md gBorderColor2 gFontColor", @id = "vQualification", @placeholder = "Enter Your Qualification", tabindex = "2" })
+                            </div>
+                        </div>
+                    </div>            
+                    <br />        
+                    <div class="row">
+                        <div class="row input-group mgnRemove" data-toggle="tooltip" data-placement="top" data-html="true" title="Remarks">
+                            <span class="input-group-addon input-md gBorderColor2 gFontColor"><i class="glyphicon glyphicon-envelope"></i></span>
+                            @Html.TextBoxFor(m => m.Remarks, new { @class = "form-control input-md gBorderColor2 gFontColor", @id = "txtRemarks", @placeholder = "Enter Remarks", tabindex = "4" })
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <label class="errorMsg">@Html.ValidationMessageFor(m => m.Status)</label>
+                        <div class="row input-group mgnRemove" data-toggle="tooltip" data-placement="top" data-html="true" title="Your Current Working Status">                            
+                            <span class="input-group-addon input-md gBorderColor2 gFontColor"><i class="glyphicon glyphicon-phone"></i></span>                            
+                            @Html.TextBoxFor(m => m.Status, new { @class = "form-control input-md gBorderColor2 gFontColor", @id = "txtMobile", @placeholder = "Enter Your Current Status", @maxlength = "10", tabindex = "5" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="row mgnRemove">
+                            <input type="submit" style="margin-bottom:20px;" class="form-control input-md btn btn-primary" name="btnSubmit" id="btnSubmit" onclick="return formValidate();" tabindex="10" value="Sign In" />
+                        </div>
+                    </div>
+                </div>
+                @{ Html.EndForm(); }
+            </section>
+        </div>
+    </div>
+</body>

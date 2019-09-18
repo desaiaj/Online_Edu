@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "OTP";
+    Layout = "~/Views/Shared/_OtherMaster.cshtml";
+}
+<script src="~/scripts/jquery-1.9.1.js"></script>
+<script src="~/scripts/OTPConfirmation.js"></script>
+<script type="text/javascript">
+    var link3 = "@Url.Action("Confirmation", "Registration", new { t = true })";
+    var link = "@Url.Action("CheckOTP", "Login")";
+    var link2 = "@Url.Action("Index", "Home", new { area = "Users" })";
+    var link1 = "@Url.Action("SendOTPforJson", "Registration")";
+</script>
+
+<div style="margin-top:20%;width:50%;" class="col-lg-offset-5 col-lg-2 col-md-5 col-md-2">    
+    Enter OTP : <input type="text" class="input-sm" id="txtOTP" />
+    <h6>The OTP will Expire in 5 minutes</h6>
+    @Html.Hidden("OTP", @TempData["OTP"], new { @id = "OTP" })
+    @Html.Hidden("Email", @TempData["Email"], new { @id = "Email" })
+
+    @*@TempData["OTP"]*@
+
+    <input type="button" value="Resend" style="margin-left:90px;" class="input-sm btn btn-primary" id="Resend" name="Resend" />
+    <input type="button" value="Verify" class="input-sm btn btn-success" id="Verify" name="Verify" />
+</div>

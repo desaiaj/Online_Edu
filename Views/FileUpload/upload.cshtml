@@ -1,0 +1,58 @@
+﻿@model OnlineEducation.Models.TutorialsModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <noscript>
+        javascript not enabled
+    </noscript>
+    <meta name="viewport" content="width=device-width" />
+    <title>Upload</title>
+    <script src="~/scripts/jquery-1.9.1.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/jquery.validate.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+    <script>
+        var link ='@Url.Action("CheckUpload", "FileUpload")'
+    </script>
+    <script src="~/scripts/CheckNotesValidation.js"></script>
+</head>
+<body>
+    @{ Html.BeginForm("NotesUpload", "FileUpload", FormMethod.Post, new { @enctype = "multipart/form-data" }); }
+   @* <form name="frm" method="post" enctype="multipart/form-data" action="/FileUpload/NotesUpload">*@
+
+        <div>
+            <div>
+                @Html.TextBoxFor(m => m.Doc, new { title = "Choose File", @id="ChooseFile", @class = "", type = "file", @maxlength = "500", @tabindex = "1" })
+                @Html.ValidationMessageFor(m => m.Doc)
+           </div>
+            <div>
+                <label style="display:none;color:red" id="ErrMsg">Not A valid Document</label>
+            </div>
+            <div>
+                @Html.TextBoxFor(m => m.Subject,new { @id="Sub"})
+                @Html.ValidationMessageFor(m => m.Subject)
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.Category)
+                @Html.ValidationMessageFor(m => m.Category)
+            </div>
+
+            <div>
+                @Html.TextBoxFor(m => m.Description)
+                
+            </div>
+            <input type="submit" name="upload" id="upload" value="upload" />
+
+        </div>
+    @{ Html.EndForm(); }
+    @*</form>*@
+</body>
+</html>
+

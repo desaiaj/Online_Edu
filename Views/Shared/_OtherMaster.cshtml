@@ -1,0 +1,133 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<noscript>
+    
+</noscript>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME CSS -->
+    <link href="../../Content/home/font-awesome.min.css" rel="stylesheet" />
+    <!-- FLEXSLIDER CSS -->
+    <link href="../../Content/home/flexslider.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+
+    <link href="../../Content/home/style.css" rel="stylesheet" />
+    <!-- Google	Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
+
+    <link href="~/Content/HeaderStyle.css" rel="stylesheet" />
+    <script>
+        //onmousedown(alet("Clicked"));
+    </script>    
+</head>
+
+
+
+<body>
+    <div style="height:2000px;width:100%;overflow:hidden;position:fixed;top:0;z-index:5000;display:none;">
+        Please Enable Javascript
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top TopHeader gBGColor" style="height:78px;padding:10px 10px 10px 10px;box-shadow: 0 5px 50px -5px #333;">
+        <div class="navbar-header navTitle">
+            <a class="navbar-brand FontFormat" href="#"><i class="glyphicon glyphicon-book"></i>&nbsp;Online<strong style="letter-spacing:0.5px;"><strong style="color:lightgray;">E</strong>ducation</strong></a>
+            <button type="button" class="navbar-toggle btnCollapse" data-toggle="collapse" data-target="#TopManu1" onclick="openManu();">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse ManuPosition" id="myNavbar">
+            <div class="ManuTab"><a href="@Url.Action("Index","Homes")" id="Manu"><i class="glyphicon glyphicon-home"></i></a></div>
+            <div class="navbar-right" style="margin-right:5px;">
+                
+            @{
+                if (ViewBag.Title == "Login")
+                {
+                   <div class="ManuTab" style="margin-right:0px !important;" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Create New Account">
+                       <a href="~/Registration" id="Manu">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;</a>
+                   </div>
+                }
+                else if(ViewBag.Title == "Create Account")
+                {
+                   <div class="ManuTab" style="margin-right:0px !important;" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Login">
+                       <a href="~/Login/Index" id="Manu">&nbsp;<span class="glyphicon glyphicon-log-in"></span>&nbsp;</a>
+                   </div>
+                }
+                else if (ViewBag.Title == "Home")
+                {
+                    <div class="ManuTab" style="margin-right:0px !important;" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Create New Account">
+                        <a href="~/Registration" id="Manu">&nbsp;<span class="glyphicon glyphicon-user"></span>&nbsp;</a>
+                    </div>
+                    <div class="ManuTab" style="margin-right:0px !important;" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Login">
+                        <a href="~/Login/Index" id="Manu">&nbsp;<span class="glyphicon glyphicon-log-in"></span>&nbsp;</a>
+                    </div>
+                }
+            }
+            </div>
+        </div>
+    </nav>
+    <div class="collapse TopManu" id="TopManu1">
+        <ul class="nav navbar-nav">
+            <li class="FontWhite"><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+            <li class="dropdown FontWhite"><a href="#">Home</a></li>
+            <li>@Html.ActionLink("Link 2", "Index")</li>
+            <li><a href="#">Page 3</a></li>
+        </ul>
+    </div>
+    <div>
+         @RenderBody()
+    </div>
+    @*<div class="container">
+        <div class="row set-row-pad">
+            <div class="col-lg-4 col-md-4 col-sm-4   col-lg-offset-1 col-md-offset-1 col-sm-offset-1 " data-scroll-reveal="enter from the bottom after 0.4s">
+
+                <h2><strong>Our Location </strong></h2>
+                <hr />
+                <div>
+                    <h4>234/80 , New Street,</h4>
+                    <h4>India.</h4>
+                    <h4><strong>Call:</strong>  + 88-665-88-834 / 70 / 71 </h4>
+                    <h4><strong>Email: </strong>info@onlineEdu.com</h4>
+                </div>
+
+
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4   col-lg-offset-1 col-md-offset-1 col-sm-offset-1" data-scroll-reveal="enter from the bottom after 0.4s">
+
+                <h2><strong>Social Conectivity </strong></h2>
+                <hr />
+                <div>
+                    <a href="#">  <img src="~/Uploads/facebook.png" alt="" class="img-thumbnail" style="height:30px;width:30px" /> </a>
+                    <a href="#"> <img src="~/Uploads/google-plus.png" alt="" class="img-thumbnail" style="height:30px;width:30px" /></a>
+                    <a href="#"> <img src="~/Uploads/twitter.png" alt="" class="img-thumbnail" style="height:30px;width:30px" /></a>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    @*<div id="footer">
+        &copy 2014 onlineEdu.com | All Rights Reserved |  <a href="#" style="color: #fff" target="_blank">Design by : Our Team</a>
+    </div>*@
+
+    @*<script src="../../scripts/jquery-1.9.1.js"></script>
+    <!--  Core Bootstrap Script -->
+    <script src="../../scripts/bootstrap.js"></script>
+    <!--  Flexslider Scripts -->
+    <script src="../../scripts/home/jquery.flexslider.js"></script>
+    <!--  Scrolling Reveal Script -->
+    <script src="../../scripts/home/scrollReveal.js"></script>
+    <!--  Scroll Scripts -->
+    <script src="../../scripts/home/jquery.easing.min.js"></script>
+    <!--  Custom Scripts -->
+    <script src="../../scripts/home/custom.js"></script>*@
+
+</body>
+</html>
