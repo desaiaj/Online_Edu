@@ -1,0 +1,83 @@
+﻿<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link type="text/css" rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link href="~/Areas/Admin/Style/AdminMasterStyle.css" rel="stylesheet" />
+    <link href="~/Content/HeaderStyle.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-1.9.1.js"></script>
+    <script src="~/scripts/bootstrap.js"></script>
+</head>
+
+
+<body class="gBGColor">
+
+    <div class="dropdown ProfilePosition">
+        <font style="color:white;" class="navbar-text">Admin</font> <button class="img-circle dropdown-toggle ProfileImg" data-toggle="dropdown"></button>
+        <ul class="dropdown-menu" style="margin-left:-70px !important;">
+            <li><a href="~/EditProfile"><span><i class="glyphicon glyphicon-user"></i></span>&nbsp;Profile</a></li>
+            <li><a href="~/Login/LogOut"><span><i class="glyphicon glyphicon-log-out"></i></span>&nbsp;Logout</a></li>
+        </ul>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top TopHeader" style="height:78px;padding:10px 10px 10px 10px;background-color:#212121;">
+
+        <div class="navbar-header navTitle">
+            <a class="navbar-brand FontFormat" href="#"><i class="glyphicon glyphicon-book"></i>&nbsp;Online<strong style="letter-spacing:0.5px;"><strong style="color:lightgray;">E</strong>ducation</strong></a>
+            <button type="button" class="navbar-toggle btnCollapse" data-toggle="collapse" data-target="#TopManu1" onclick="openManu();">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse ManuPosition" id="myNavbar">
+            <div class="ManuTab"><a href="#" id="Manu"><i class="glyphicon glyphicon-home"></i></a></div>
+        </div>
+    </nav>
+    <div class="collapse TopManu" id="TopManu1">
+        <ul class="nav navbar-nav">
+            <li class="FontWhite"><a href="#"><i class="glyphicon glyphicon-home"></i></a></li>
+            <li class="dropdown FontWhite"><a href="#">Home</a></li>
+            <li>@Html.ActionLink("Link 2", "Index")</li>
+            <li><a href="#">Page 3</a></li>
+        </ul>
+    </div>
+
+    <div class="container-fluid padRemove" style="margin-top:78px;">
+        <div class="ManuBody">
+            <div class="container-fluid" style="color:white;">
+                <abbr title="Dashbord" style="background-color:firebrick;color:white;">
+                    <a class="manuLink" href="~/Admin/Deshbord"><div class="row manu"><i class="glyphicon glyphicon-dashboard"></i></div></a>
+                </abbr>
+                <abbr title="Users" style="background-color:firebrick;color:white;">
+                    <a class="manuLink" href="~/Admin/UsersList"><div class="row manu"><i class="glyphicon glyphicon-user"></i></div></a>
+                </abbr>
+                <abbr title="Tutorials" style="background-color:firebrick;color:white;">
+                    <a class="manuLink" href="~/Admin/Tutorials"><div class="row manu"><i class="glyphicon glyphicon-book"></i></div></a>
+                </abbr>
+                <abbr title="Complain & Feedback" style="background-color:firebrick;color:white;">
+                    <a class="manuLink" href="FeedBackandComplaint">
+                        <div class="row manu">
+                            <i class="glyphicon glyphicon-comment"></i>
+                            @*<a href="FeedBackandComplaint"><img src="~/Uploads/feedback.png" style="margin-left:5px;margin-top:-8px;" height="40px" width="40px" /></a>*@
+                        </div>
+                    </a>
+                </abbr>
+
+                <div class="row manu"><i class="glyphicon glyphicon-eye-open"></i></div>
+                <div class="row manu"><i class="glyphicon glyphicon-hand-left"></i></div>
+                <div class="row manu"><i class="glyphicon glyphicon-user"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="BodyContent">
+        @RenderBody()
+    </div>
+
+</body>
+</html>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

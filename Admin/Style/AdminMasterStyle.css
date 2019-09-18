@@ -1,0 +1,103 @@
+﻿body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-style: normal;
+}
+
+.gFontColor
+{
+    color:#0066CC !important;
+}
+
+.gBGColor
+{
+    background-color:#0066CC !important;
+}
+
+.gBorderColor
+{
+    border-color:#0066CC !important;
+}
+
+.padRemove
+{
+    padding-left:0px !important;
+    padding-right:0px !important;
+}
+
+
+
+.ManuBody
+{
+     background-color:transparent;
+     z-index:10;
+     position:fixed;
+     width:70px;
+     height:1000px;
+     overflow-y:hidden;
+     padding:10px 0px 20px 0px;
+}
+
+.manu
+{
+    font-size:22px;
+    padding:19px 0px 19px 0px;
+    text-align:center;
+    height:60px;
+    border-bottom:solid;
+    border-color:dimgray;
+    border-width:thin;
+}
+
+
+
+.manu:hover
+{
+    font-size:22px;
+    padding:19px 0px 19px 0px !important;
+    margin-left:-15px !important;
+    text-align:center;
+    height:60px;
+    border-bottom:solid;
+    border-color:dimgray;
+    border-width:thin;
+    background-color:white;
+    color:dimgray;
+
+}
+
+.manuLink
+{
+    color:white;
+    text-decoration:none;
+}
+
+.manuLink:hover 
+{
+    background-color:white;
+    color:white;
+    text-decoration:none;
+    
+}
+
+:active
+{
+    background-color:white;
+    color:white;
+    text-decoration:none;
+    
+}
+
+.BodyContent
+{
+    height:1000px;
+    background-color:white;
+    margin:10px 10px 10px 70px;
+    border-radius:3px 5px 5px 3px;
+    padding:10px 10px 10px 10px;
+    overflow:auto;
+}
+
+
+
+/*================================================================*/
+

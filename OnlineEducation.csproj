@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BC7875F4-DA35-4160-8314-6B4741017231}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OnlineEducation</RootNamespace>
+    <AssemblyName>OnlineEducation</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.25.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.25.0\lib\net45\Google.Apis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.25.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.25.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.25.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.25.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.25.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.25.0\lib\net45\Google.Apis.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.25.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.25.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Google.Apis.YouTube.v3, Version=1.25.0.760, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.YouTube.v3.1.25.0.760\lib\net45\Google.Apis.YouTube.v3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.10\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid, Version=9.0.12.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.9.0.12\lib\net452\SendGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Zlib.Portable, Version=1.11.0.0, Culture=neutral, PublicKeyToken=431cba815f6a8b5b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zlib.Portable.Signed.1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\New folder\1_Online Education System.mdf" />
+    <Content Include="App_Data\New folder\1_Online Education System_log.ldf">
+      <DependentUpon>1_Online Education System.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\New folder\2_Online Education System.mdf" />
+    <Content Include="App_Data\New folder\2_Online Education System_log.ldf">
+      <DependentUpon>2_Online Education System.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Online Education System.mdf" />
+    <Content Include="App_Data\Online Education System_log.ldf">
+      <DependentUpon>Online Education System.mdf</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Style\AdminMasterStyle.css" />
+    <Content Include="Areas\Admin\Style\Deshbord.css" />
+    <Content Include="Areas\Admin\Style\UsersList.css" />
+    <Content Include="Areas\Users\Script\animframe_polyfill.js" />
+    <Content Include="Areas\Users\Script\application.js" />
+    <Content Include="Areas\Users\Script\bind_polyfill.js" />
+    <Content Include="Areas\Users\Script\Block.js" />
+    <Content Include="Areas\Users\Script\checking.js" />
+    <Content Include="Areas\Users\Script\classlist_polyfill.js" />
+    <Content Include="Areas\Users\Script\comboTimer.js" />
+    <Content Include="Areas\Users\Script\example.js" />
+    <Content Include="Areas\Users\Script\game_manager.js" />
+    <Content Include="Areas\Users\Script\grid.js" />
+    <Content Include="Areas\Users\Script\Hex.js" />
+    <Content Include="Areas\Users\Script\html_actuator.js" />
+    <Content Include="Areas\Users\Script\initialization.js" />
+    <Content Include="Areas\Users\Script\input.js" />
+    <Content Include="Areas\Users\Script\keyboard.js" />
+    <Content Include="Areas\Users\Script\keyboard_input_manager.js" />
+    <Content Include="Areas\Users\Script\local_storage_manager.js" />
+    <Content Include="Areas\Users\Script\main.js" />
+    <Content Include="Areas\Users\Script\math.js" />
+    <Content Include="Areas\Users\Script\paint.js" />
+    <Content Include="Areas\Users\Script\render.js" />
+    <Content Include="Areas\Users\Script\save-state.js" />
+    <Content Include="Areas\Users\Script\Snake.js" />
+    <Content Include="Areas\Users\Script\Text.js" />
+    <Content Include="Areas\Users\Script\tile.js" />
+    <Content Include="Areas\Users\Script\update.js" />
+    <Content Include="Areas\Users\Script\vendor\hammer.min.js" />
+    <Content Include="Areas\Users\Script\vendor\jquery.js" />
+    <Content Include="Areas\Users\Script\vendor\js.cookie.js" />
+    <Content Include="Areas\Users\Script\vendor\jsonfn.min.js" />
+    <Content Include="Areas\Users\Script\vendor\keypress.min.js" />
+    <Content Include="Areas\Users\Script\vendor\rrssb.min.js" />
+    <Content Include="Areas\Users\Script\vendor\sweet-alert.min.js" />
+    <Content Include="Areas\Users\Script\view.js" />
+    <Content Include="Areas\Users\Script\wavegen.js" />
+    <Content Include="Areas\Users\Style\fa\css\font-awesome.css" />
+    <Content Include="Areas\Users\Style\fa\css\font-awesome.min.css" />
+    <Content Include="Areas\Users\Style\fa\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Users\Style\fonts\clear-sans.css" />
+    <Content Include="Areas\Users\Style\fonts\ClearSans-Bold-webfont.svg" />
+    <Content Include="Areas\Users\Style\fonts\ClearSans-Light-webfont.svg" />
+    <Content Include="Areas\Users\Style\fonts\ClearSans-Regular-webfont.svg" />
+    <Content Include="Areas\Users\Style\images\btn_back.svg" />
+    <Content Include="Areas\Users\Style\images\btn_help.svg" />
+    <Content Include="Areas\Users\Style\images\btn_pause.svg" />
+    <Content Include="Areas\Users\Style\images\btn_restart.svg" />
+    <Content Include="Areas\Users\Style\images\btn_resume.svg" />
+    <Content Include="Areas\Users\Style\images\icon_arrows.svg" />
+    <Content Include="Areas\Users\Style\main.css" />
+    <Content Include="Areas\Users\Style\paint.css" />
+    <Content Include="Areas\Users\Style\style.css" />
+    <Content Include="Areas\Users\Style\UserMasterStyle.css" />
+    <Content Include="Areas\Users\Views\paint\paint.css" />
+    <Content Include="Areas\Users\Views\SearchTutorials\_Search.cshtml" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\components-md.css" />
+    <Content Include="Content\css\components-md.min.css" />
+    <Content Include="Content\css\components-rounded.css" />
+    <Content Include="Content\css\components-rounded.min.css" />
+    <Content Include="Content\css\components.css" />
+    <Content Include="Content\css\components.min.css" />
+    <Content Include="Content\css\plugins-md.css" />
+    <Content Include="Content\css\plugins-md.min.css" />
+    <Content Include="Content\css\plugins.css" />
+    <Content Include="Content\css\plugins.min.css" />
+    <Content Include="Content\DateTimePickerSetting.css" />
+    <Content Include="Content\EditProfileStyle.css" />
+    <Content Include="Content\HeaderStyle.css" />
+    <Content Include="Content\home\flexslider.css" />
+    <Content Include="Content\home\font-awesome.min.css" />
+    <Content Include="Content\home\style.css" />
+    <Content Include="Content\Login.css" />
+    <Content Include="Content\RFormStyle.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\Style.css" />
+    <Content Include="Content\styleNav.css" />
+    <Content Include="Images\07b37d9e8af59caf15b0f8e1b49da368.jpg" />
+    <Content Include="Images\12089987-light-beige-floral-seamless-pattern--Stock-Vector-scrapbook.jpg" />
+    <Content Include="Images\13023914-abstract-beige-flourish-floral-swirl-seamless-background-pattern-Stock-Vector.jpg" />
+    <Content Include="Images\16296280-beige-canvas-background-carpet-texture-with-horizontal-stripes--Stock-Photo.jpg" />
+    <Content Include="Images\8MCQ6ay.jpg" />
+    <Content Include="Images\Banner01.png" />
+    <Content Include="Images\Best-Wallpaper-HD-Background.jpg" />
+    <Content Include="Images\books-on-the-brown-background-and-trees-backgrounds-wallpapers.jpg" />
+    <Content Include="Images\cool-background.jpg" />
+    <Content Include="Images\Floral-Frame-Backgrounds.jpg" />
+    <Content Include="Images\Free Thanksgiving PowerPoint Background %2818%29.png" />
+    <Content Include="Images\gd.png" />
+    <Content Include="Images\Papel-de-parede-Non-woven-European-Classic-Vintage-Glitter-Wall-Covering-Paper-Wallpaper-Roll-8-colors.jpg" />
+    <Content Include="Images\syllabus_banner.jpg" />
+    <Content Include="Images\The-book-is-on-Fire-PPT-Backgrounds.jpg" />
+    <Content Include="Images\wqrvjhjzajyehnlilhhx.jpg" />
+    <Content Include="scripts\BlockUnblock.js" />
+    <Content Include="scripts\bootstrap-datetimepicker.fr.js" />
+    <Content Include="scripts\bootstrap-datetimepicker.js" />
+    <Content Include="scripts\CheckImg.js" />
+    <Content Include="scripts\CheckNotesValidation.js" />
+    <Content Include="scripts\custom.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Users\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Tutorials\Tutorials.cshtml" />
+    <Content Include="Areas\Admin\Views\Tutorials\_UploadTutorials.cshtml" />
+    <Content Include="Areas\Users\Views\Shared\_UserMasterPage.cshtml" />
+    <Content Include="Areas\Users\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Deshbord\Index.cshtml" />
+    <Content Include="Areas\Users\Views\Exam\GenerateExamPaper.cshtml" />
+    <Content Include="Areas\Users\Views\Exam\Index.cshtml" />
+    <Content Include="Areas\Users\Views\Exam\_Questions.cshtml" />
+    <Content Include="Areas\Users\Views\Exam\InsertQuestion.cshtml" />
+    <Content Include="Areas\Users\Views\Query\AskQuestion.cshtml" />
+    <Content Include="Areas\Users\Views\Query\Answer.cshtml" />
+    <Content Include="Areas\Users\Views\Query\Queries.cshtml" />
+    <Content Include="Areas\Users\Views\Exam\Result.cshtml" />
+    <Content Include="Areas\Users\Views\SearchTutorials\index.cshtml" />
+    <Content Include="Areas\Admin\Views\Tutorials\_GetTutorialsBySearch.cshtml" />
+    <Content Include="Areas\Admin\Views\UsersList\_UsersBySearch.cshtml" />
+    <Content Include="Areas\Admin\Views\FeedBackandComplaint\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\FeedBackandComplaint\_GetComplaintsForSearch.cshtml" />
+    <Content Include="Areas\Users\Views\paint\Index.cshtml" />
+    <Content Include="Areas\Users\Views\Games\Index.cshtml" />
+    <Content Include="Areas\Users\Views\Games\G2048.cshtml" />
+    <Content Include="Areas\Users\Style\fonts\ClearSans-Bold-webfont.eot" />
+    <Content Include="Areas\Users\Style\fonts\ClearSans-Bold-webfont.woff" />
+    <Content Include="Areas\Users\Style\fonts\ClearSans-Light-webfont.eot" />
+    <Content Include="Areas\Users\Style\fonts\ClearSans-Light-webfont.woff" />
+    <Content Include="Areas\Users\Style\fonts\ClearSans-Regular-webfont.eot" />
+    <Content Include="Areas\Users\Style\fonts\ClearSans-Regular-webfont.woff" />
+    <Content Include="Areas\Users\Style\helpers.scss" />
+    <Content Include="Areas\Users\Style\main.scss" />
+    <Content Include="Areas\Users\Views\Games\Hextris.cshtml" />
+    <Content Include="Areas\Users\Style\fa\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Users\Style\fa\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Users\Style\fa\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Users\Style\fa\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Users\Views\Games\Snake.cshtml" />
+    <Content Include="Areas\Users\Views\SearchTutorials\_TutorialData.cshtml" />
+    <Content Include="scripts\jquery.fancybox-1.3.4-p.pack.js" />
+    <Content Include="scripts\jquery.min.js" />
+    <Content Include="Areas\Users\Views\Songs\Songs.cshtml" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\datetimepickerSetting.js" />
+    <Content Include="scripts\GetComplaintsBySearch.js" />
+    <Content Include="scripts\home\custom.js" />
+    <Content Include="scripts\GetUserBySearch.js" />
+    <Content Include="scripts\home\jquery-1.10.2.js" />
+    <Content Include="scripts\home\jquery.easing.min.js" />
+    <Content Include="scripts\home\jquery.flexslider.js" />
+    <Content Include="scripts\home\scrollReveal.js" />
+    <Content Include="scripts\LoginValidation.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="scripts\OTPConfirmation.js" />
+    <Content Include="scripts\script.js" />
+    <None Include="scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="scripts\bootstrap.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\jquery-1.9.1.js" />
+    <Content Include="scripts\jquery-1.9.1.min.js" />
+    <Content Include="scripts\SearchTutorials.js" />
+    <Content Include="scripts\Validation.js" />
+    <Content Include="scripts\wall.js" />
+    <Content Include="Songs\%28R%2903 - Chahun Main Ya Naa.mp3" />
+    <Content Include="SQL\CheckLogin.sql" />
+    <Content Include="SQL\Reginsert.sql" />
+    <Content Include="SQL\tblCity.sql" />
+    <Content Include="SQL\tblCountry.sql" />
+    <Content Include="SQL\tblState.sql" />
+    <Content Include="SQL\tblUser.sql" />
+    <Content Include="SQL\UpdateProfile.sql" />
+    <Content Include="Uploads\kk.txt" />
+    <Content Include="Uploads\Profile\Default_Profile.png" />
+    <Content Include="Views\Homes\index.html" />
+    <Content Include="Views\Homes\assets\img\building.jpg" />
+    <Content Include="Views\Homes\assets\img\contact.jpg" />
+    <Content Include="Views\Homes\assets\img\header.jpg" />
+    <Content Include="Views\Homes\assets\img\logo180-50.png" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\DeshbordController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FeedBackandComplaintController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FileUploadController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TutorialsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersListController.cs" />
+    <Compile Include="Areas\Admin\Models\AdminDataContext.cs" />
+    <Compile Include="Areas\Users\Controllers\CheckController.cs" />
+    <Compile Include="Areas\Users\Controllers\ExamController.cs" />
+    <Compile Include="Areas\Users\Controllers\GamesController.cs" />
+    <Compile Include="Areas\Users\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Users\Controllers\PaintController.cs" />
+    <Compile Include="Areas\Users\Controllers\QueryController.cs" />
+    <Compile Include="Areas\Users\Controllers\SearchTutorialsController.cs" />
+    <Compile Include="Areas\Users\Controllers\SearchVideoTutorialsController.cs" />
+    <Compile Include="Areas\Users\Controllers\SongsController.cs" />
+    <Compile Include="Areas\Users\Models\SongsModel.cs" />
+    <Compile Include="Areas\Users\Models\UploadModel.cs" />
+    <Compile Include="Areas\Users\Models\UsersDataContext.cs" />
+    <Compile Include="Areas\Users\Models\ViewTutorialsDataContext.cs" />
+    <Compile Include="Controllers\EditProfileController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ExpertController.cs" />
+    <Compile Include="Controllers\ForgotPasswordController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomesController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\UserProfileController.cs" />
+    <Compile Include="Models\EducationDataContext.cs" />
+    <Compile Include="Areas\Admin\Models\NotesListModel.cs" />
+    <Compile Include="Models\ExamDataContext.cs" />
+    <Compile Include="Models\ExamModel.cs" />
+    <Compile Include="Models\ExpertDataContext.cs" />
+    <Compile Include="Models\ExpertModel.cs" />
+    <Compile Include="Models\FeedBackModel.cs" />
+    <Compile Include="Models\QueryDataContext.cs" />
+    <Compile Include="Models\QueryModel.cs" />
+    <Compile Include="Models\ResultModel.cs" />
+    <Compile Include="Models\TutorialsDataContext.cs" />
+    <Compile Include="Models\TutorialsModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ErrorTrackingModel.cs" />
+    <Compile Include="Models\Helper.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\UserProfileModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\CommonAutoLogOutFunction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="scripts\jquery-1.9.1.min.map" />
+    <Content Include="Areas\Users\_UserLayoutPage.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="SQL\Database.xlsx" />
+    <Content Include="Views\Shared\ErrorPage.cshtml" />
+    <Content Include="Views\EditProfile\EditProfile.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_MasterPage.cshtml" />
+    <Content Include="Views\Registration\RForm.cshtml" />
+    <Content Include="Views\FileUpload\upload.cshtml" />
+    <Content Include="Views\Shared\_OtherMaster.cshtml" />
+    <Content Include="Areas\Admin\Views\UsersList\UsersList.cshtml" />
+    <Content Include="Views\Homes\index.cshtml" />
+    <Content Include="Views\Registration\OTP.cshtml" />
+    <Content Include="Views\Expert\Expert.cshtml" />
+    <Content Include="Views\UserProfile\Profile.cshtml" />
+    <Content Include="Areas\Users\Views\SearchVideoTutorials\index.cshtml" />
+    <Content Include="Areas\Users\Views\SearchVideoTutorials\item.cshtml" />
+    <Content Include="Views\ForgotPassword\Index.cshtml" />
+    <Content Include="Views\ForgotPassword\ChangePassword.cshtml" />
+    <Content Include="Views\Homes\AboutUs.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Script\" />
+    <Folder Include="obj\" />
+    <Folder Include="Views\Error\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49304</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49306/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

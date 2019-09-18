@@ -1,0 +1,35 @@
+﻿<table class="table table-bordered table-hover" style="width:100%;">
+    <thead>
+        <tr class="label-default">
+            <th>ID</th>
+            <th>Uploaded By</th>
+            <th>Document Name</th>
+            <th>Subject</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Upload Date</th>
+            <th>Rates</th>
+            <th>Settings</th>
+        </tr>
+    </thead>
+    @{
+        foreach (var data in Model.loTutorialsData)
+        {
+            <tr>
+                <td>@data.TutorialsID</td>
+                <td>@data.UserID</td>
+                <td id="@{@data.TutorialsID}N">@data.DocName</td>
+                <td id="@{@data.TutorialsID}S">@data.Subject</td>
+                <td id="@{@data.TutorialsID}C">@data.Category</td>
+                <td id="@{@data.TutorialsID}D" style="column-width:35px;max-width:35px;overflow:hidden;overflow-x:hidden;max-height:40px;">@data.Description</td>
+                <td>@data.UploadDate.ToShortDateString()</td>
+                <td>@data.Likes</td>
+                <td align="center">
+                    <span style="color:blue;cursor:pointer" data-toggle="modal" data-target="#myModal" id="@data.TutorialsID" Tutorials" class="glyphicon glyphicon-pencil btn-link" onclick="TutorialsData(this)"></span>&nbsp;
+                    <span style="color:red;cursor:pointer" id="@data.TutorialsID" class="glyphicon glyphicon-trash btn-link" onclick="DelTutorial(this)"></span>
+                </td>
+            </tr>
+    }
+    }
+    <tfoot>Total Tutorials Found @Model.loTutorialsData.Count</tfoot>
+</table>
