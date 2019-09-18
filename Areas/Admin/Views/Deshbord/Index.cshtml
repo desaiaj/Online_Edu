@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Deshbord";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterPage.cshtml";
+}
+
+<!DOCTYPE html>
+<link href="~/Areas/Admin/Style/Deshbord.css" rel="stylesheet" />
+<body>
+    <section class="container-fluid BodyStyle">
+        <div class="row">
+            <label class="headingFont">Deshbord</label>
+        </div>
+        <div class="row bordsBody">
+            <div class="col-lg-3 col-md-4 col-sm-6 dashboard-stat dashboard-stat-v2 blue " style="background-image: url('../../../../Uploads/desh.gif');color:white;">
+                <div class="visual">
+                    <i class="fa fa-comments"></i>
+                </div>
+                <div class="visual tablediv ">
+                    <div class="desc navbar-text">Users</div>
+                </div>
+                <div class="details">
+                <div class="name" style="color:white;">
+                    <table>
+                        <tr>
+                            <td>
+                                Total Users :
+                            </td>
+                            <td>
+                                @ViewBag.TotalUsers
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Active Users :
+                            </td>
+                            <td>
+                                @ViewBag.ActiveUsers
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Deactive Users :
+                            </td>
+                            <td>
+                                @ViewBag.DeactiveUsers
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </div>
+
+
+                @*<div class="bords" style="border:1px solid blue">
+                    <div style="border-bottom:1px solid blue">
+                        Total Users : @ViewBag.TotalUsers
+                        Active Users : @ViewBag.ActiveUsers
+                        Deactive Users : @ViewBag.DeactiveUsers
+                    </div>
+                    Users
+                </div>*@
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="bords" style="border:1px solid blue">
+                    Total Tutorials : @ViewBag.TotalTutorials
+                    Tutorials
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="bords" style="border:1px solid blue">
+                    FeedBacks : @ViewBag.TotalFeedBacks
+                    <br />
+                    Total Complaints : @ViewBag.TotalComplaints
+                    Solved Complaints : @ViewBag.SolvedComplaints
+                    FeedBacks And Complaints
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>

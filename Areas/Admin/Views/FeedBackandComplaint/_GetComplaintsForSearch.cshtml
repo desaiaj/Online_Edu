@@ -1,0 +1,48 @@
+﻿<table class="table table-bordered table-hover pre-scrollable" style="width:100%;" id="ComplaintDetail">
+    <thead>
+        <tr class="label-default">
+            <th>Complaint ID</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Complaint Message</th>
+            <th>ComplaintDate</th>
+            <th>Solution</th>
+            <th>Solution Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    @{
+        if (Model.loComplaints.Count != 0)
+        {
+            foreach (var data in Model.loComplaints)
+            {
+                <tr>
+                    <td><input type="button" id="@data.ComplaintID" data-toggle="modal" data-target="#myModal2" class="btn-link" value="@data.ComplaintID" onclick="ViewComplaint(this);" name="Solution"> </td>
+                    <td id="@{@data.ComplaintID}U">@data.UserName</td>
+                    <td id="@{@data.ComplaintID}E">@data.EmailID</td>
+                    <td id="@{@data.ComplaintID}S">@data.Subjet</td>
+                    <td id="@{@data.ComplaintID}d" style="column-width:35px;max-width:35px;overflow:hidden">@data.Description</td>
+                    <td>@data.ComplaintDate</td>
+                    <td>@data.Solution</td>
+                    <td>@data.SolutionDate</td>
+                    @if (data.Solution == null)
+                    {
+                        <td><input type="button" id="@data.ComplaintID" data-toggle="modal" data-target="#myModal" class="btn-link" value="Add Solution" onclick="AddSolution(this);" name="Solution"> </td>
+                    }
+                    else
+                    {
+                        <td> Solved </td>
+                    }
+                </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td align="center" colspan="9"> No Records Found</td>
+        </tr>
+    }    
+    }
+    <tfoot>Total @Model.loComplaints.Count Records Found</tfoot>
+</table>

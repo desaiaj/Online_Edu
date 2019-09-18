@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Areas/Admin/Views/Shared/_MasterPage.cshtml";
+}
+
+<link type="text/css" rel="stylesheet" href="~/Content/bootstrap.css" />
+<link href="~/Areas/Admin/Style/UsersList.css" rel="stylesheet" />
+<script src="~/scripts/jquery-1.9.1.js"></script>
+<script src="~/scripts/BlockUnblock.js"></script>
+<script src="~/scripts/GetUserBySearch.js"></script>
+
+<script>
+    var GetSearch = '@Url.Action("GetSearchedUsers", "UsersList", new { area="Admin"})';
+    var link = '@Url.Action("Block","Login",new { area=""})';
+</script>
+@*<link href="~/Areas/Admin/Style/AdminMasterStyle.css" rel="stylesheet" />*@
+@*7878098858*@ 
+<body>
+    <section class="container-fluid BodyStyle">
+        <div class="row">
+            <label class="headingFont">Users</label>
+        </div>
+        <div class="row" style="margin-top:20px;background-color:lightgrey;padding:20px 10px 20px 10px;">
+            <h4><label style="padding:0px 5px 10px 5px;color:#0066CC;">Search User</label></h4>
+            <input type="text" class="input-lg" id="UName" placeholder="Name Wise Search" />&nbsp;+&nbsp;
+            <input type="text" class="input-lg" id="Email" placeholder="Email ID Wise Search" />&nbsp;+&nbsp;
+            <input type="text" class="input-lg" id="Mobile" placeholder="Mobile No Wise Search" />&nbsp;+&nbsp;
+            @*<input type="text" class="input-lg" id="Status" placeholder="Status Wise Search" />*@
+            <select id="Status" name="Status" class="input-lg" style="width:26.4%;" >
+                <option value="" selected>-- Select Status --</option>
+                <option value="Active">Active</option>
+                <option value="InActive">InActive</option>
+                <option value="Deleted">Deactiveted Users</option>
+            </select>&nbsp;=&nbsp;
+            <input type="button" id="btnSearch" class="btn btn-primary btn-lg" name="btnSearch" value="Search" />
+        </div>
+        <div class="row" style="margin-top:10px;background-color:lightgrey;padding:20px 10px 20px 10px;">
+            <label style="margin:0px 40px 0px 0px;color:#0066CC;font-size:18px; font-style:normal; font-weight:400;">Total Users - @ViewBag.Tuser</label>
+            <label style="margin:0px 40px 0px 0px;color:#0066CC;font-size:18px; font-style:normal; font-weight:400;">Active Users - @Model[0].ActiveUsers</label>
+            <label style="margin:0px 40px 0px 0px;color:#0066CC;font-size:18px; font-style:normal; font-weight:400;">Deactive User - @Model[0].DeactiveUsers </label>
+            <label style="margin:0px 40px 0px 0px;color:#0066CC;font-size:18px; font-style:normal; font-weight:400;">Total Blocked Users- @Model[0].TotalBlocked </label>
+
+        </div>
+        <div class="row" id="UsersData" style="margin-top:10px;overflow:auto;">
+            <table class="table table-bordered table-hover pre-scrollable" style="width:100%;">
+                <thead>
+                    <tr class="label-default">
+                        <th>User ID</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>Regisration date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                @{
+                    var i = 0;
+                    foreach (var data in Model)
+                    {
+                        i++;
+                        <tr>
+                            <td>@data.UserID</td>
+                            <td>@data.FName @data.LName</td>
+                            <td>@data.Email</td>
+                            <td>@data.MobileNo</td>
+                            <td>@data.RegDate.ToShortDateString()</td>
+                            <td>@data.ISActive</td>
+                            @if (@data.BlockID == @data.UserID)
+                            {
+                                <td><a href="" id="@data.UserID" onclick="BlockUsers(this);" name="UnBlock"> UNBLOCK </a></td>
+                            }
+                            else
+                            {
+                                <td><a href="" id="@data.UserID" onclick="BlockUsers(this);" name="Block"> BLOCK </a></td>
+                            }
+                        </tr>
+                    }
+                }
+                <tfoot>Total @i Records Found</tfoot>
+            </table>
+        </div>
+    </section>
+</body>

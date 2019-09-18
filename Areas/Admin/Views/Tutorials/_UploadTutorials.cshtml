@@ -1,0 +1,19 @@
+﻿@model OnlineEducation.Models.TutorialsModel
+
+    <link type="text/css" rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link href="~/Areas/Admin/Style/UsersList.css" rel="stylesheet" />
+
+    <div class="row" style="margin-top:20px;background-color:lightgrey;padding:20px 10px 20px 10px;">
+        @{ Html.BeginForm("NotesUpload", "FileUpload", FormMethod.Post, new { @enctype = "multipart/form-data", area = "Admin" }); }
+        @Html.TextBoxFor(m=>m.Doc ,new { title = "Choose File", @id = "ChooseFile", @class = "fileinput", type = "file", @maxlength = "500", @tabindex = "1" })
+        @Html.TextBoxFor(m=>m.Subject, new { @id = "Sub", @class = "input-lg" ,@placeholder="Subject" })
+        @Html.TextBoxFor(m=>m.Category, new { @id = "Category", @class = "input-lg", @placeholder = "Category" })
+        @Html.TextBoxFor(m=>m.Description, new { @id = "Desc", @class = "input-lg", @placeholder = "Description" })
+        @*<input type="file" name="Doc" id="Doc" />
+        <input type="text" name="Subject" id="subject" placeholder="Subject" />
+        <input type="text" name="Category" id="Category" placeholder="Category" />
+        <input type="text" name="Description" id="Description" placeholder="Description" />*@
+
+        <input type="submit" name="upload" id="upload" class="btn btn-primary btn-lg" value="upload" />
+        @{ Html.EndForm(); }
+    </div>
