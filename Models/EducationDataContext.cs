@@ -17,7 +17,8 @@ namespace OnlineEducation.Models
         { }   
         public string UserInsert(UserModel loRegistration)
         {
-            List<SqlParameter> ProcParam = new List<SqlParameter>();            
+            List<SqlParameter> ProcParam = new List<SqlParameter>();
+            EducationDataContext sqldb = new EducationDataContext();
 
             ProcParam.Add(new SqlParameter("FName", loRegistration.FName.handleDBNull()));
             ProcParam.Add(new SqlParameter("LName", loRegistration.LName.handleDBNull()));
@@ -31,7 +32,7 @@ namespace OnlineEducation.Models
             ProcParam.Add(new SqlParameter("ISActive", "InActive"));
 
             ProcParam.Add(new SqlParameter("UPassword", loRegistration.UPassword.handleDBNull()));
-            ProcParam.Add(new SqlParameter("SecQue", loRegistration.SecQue.handleDBNull()));
+            ProcParam.Add(new SqlParameter("SecQue","security question" ));
 
             //ProcParam.Add(new SqlParameter("SecQue", loRegistration.SecQue));
             ProcParam.Add(new SqlParameter("SecAns", loRegistration.SecAns.handleDBNull()));
@@ -43,7 +44,7 @@ namespace OnlineEducation.Models
 
             //if (Convert.ToBoolean(ins.Database.SqlQuery<Reg>("Rginsert".getSql(ProcParam.ToList()))))
             // if (Convert.ToBoolean(ins.Database.ExecuteSqlCommand("Rginsert".getSql(ProcParam.ToList()))))
-            if (Convert.ToBoolean(new EducationDataContext().Database.ExecuteSqlCommand("exec Registration @FName,@LName,@MobileNo,@Email,@Gender,@UserType,@ProfImg,@RegDate,@ISActive,@UPassword,@SecQue,@SecAns,@LearnedTime", ProcParam.ToArray())))
+            if (Convert.ToBoolean(sqldb.Database.ExecuteSqlCommand("exec Registration @FName,@LName,@MobileNo,@Email,@Gender,@UserType,@ProfImg,@RegDate,@ISActive,@UPassword,@SecQue,@SecAns,@LearnedTime", ProcParam.ToArray())))
                 return "Successfully Registered";
             else
                 return "Error Occured While Registering";
@@ -90,8 +91,18 @@ namespace OnlineEducation.Models
         }
 
         public string EditProfile(UserModel loEdit)
-        {            
-            List<SqlParameter> ProcParam = new List<SqlParameter>();           
+        {
+            EducationDataContext sqldb = new EducationDataContext();
+            List<SqlParameter> ProcParam = new List<SqlParameter>();
+            //string FileName;
+            //if (loEdit.ProfileImg==null)
+            //{
+            //    FileName = System.Configuration.ConfigurationManager.AppSettings["Default_Profile"];
+            //}
+            //else
+            //{
+            //    FileName = loEdit.ProfileImg.FileName;
+            //}
 
             string FileName = loEdit.ProfImg;
             if (loEdit.ProfileImg != null)
@@ -100,8 +111,7 @@ namespace OnlineEducation.Models
             }
             else
             {
-                if (FileName == null) 
-                    FileName = System.Configuration.ConfigurationManager.AppSettings["Default_Profile"];
+                FileName = System.Configuration.ConfigurationManager.AppSettings["Default_Profile"];
             }
       
             ProcParam.Add(new SqlParameter("UserID", loEdit.UserID.handleDBNull()));
@@ -114,7 +124,7 @@ namespace OnlineEducation.Models
             ProcParam.Add(new SqlParameter("profileImg", FileName.handleDBNull()));
             ProcParam.Add(new SqlParameter("UPassword", loEdit.UPassword.handleDBNull()));
 
-            if (Convert.ToBoolean(new EducationDataContext().Database.ExecuteSqlCommand("exec UpdateProfile @UserID,@FName,@LName,@MobileNo,@Email,@DoB,@City,@profileImg,@UPassword", ProcParam.ToArray())))
+            if (Convert.ToBoolean(sqldb.Database.ExecuteSqlCommand("exec UpdateProfile @UserID,@FName,@LName,@MobileNo,@Email,@DoB,@City,@profileImg,@UPassword", ProcParam.ToArray())))
                 return "Successfully Registered";
             else
                 return "Error Occured While Registering";
@@ -126,7 +136,7 @@ namespace OnlineEducation.Models
             ProcParam.Add(new SqlParameter("Name", loFeedBack.UserName.handleDBNull()));
             ProcParam.Add(new SqlParameter("Subjet", loFeedBack.Subjet.handleDBNull()));
             ProcParam.Add(new SqlParameter("Description", loFeedBack.Description.handleDBNull()));
-            ProcParam.Add(new SqlParameter("Date", DateTime.Now.Date.ToShortDateString()));
+            ProcParam.Add(new SqlParameter("Date", DateTime.Now.Date));
             ProcParam.Add(new SqlParameter("check", c));
             new EducationDataContext().Database.ExecuteSqlCommand("EXEC FeedBackandComplaints @EmailID,@Name,@Subjet,@Description,@Date,@check", ProcParam.ToArray());
         }
@@ -139,6 +149,13 @@ namespace OnlineEducation.Models
             ProcParam.Add(new SqlParameter("UserID", UserID.handleDBNull()));
             return new EducationDataContext().Database.SqlQuery<UserModel>("GetUserData".getSql(ProcParam), ProcParam.Cast<object>().ToArray()).FirstOrDefault();
         }
+
+        //public string UploadDB()
+        //{
+        //    SqlConnection con = new SqlConnection();
+        //    return null;
+        //}
+
         public void LogOut(object UserID=null,string Email=null,string pass=null)
         {
             EducationDataContext sqldb = new EducationDataContext();
@@ -163,6 +180,7 @@ namespace OnlineEducation.Models
             else
                 return true;
         }
+
         public Boolean GetMobile(string lsMobile)
         {
             EducationDataContext sqldb = new EducationDataContext();
@@ -177,6 +195,7 @@ namespace OnlineEducation.Models
             else
                 return true;
         }
+
         public Boolean GetUserName(string lsUserName)
         {
             EducationDataContext sqldb = new EducationDataContext();
@@ -201,16 +220,22 @@ namespace OnlineEducation.Models
             ProcParam.Add(new SqlParameter("tillDate", DateTime.Now.Date.AddDays(5)));
             ProcParam.Add(new SqlParameter("Details", "Blocked"));
 
-            return new EducationDataContext().Database.ExecuteSqlCommand("EXEC BlockUser @UserID,@Flag,@BlockedDate,@tillDate,@Details", ProcParam.ToArray());
+            return new EducationDataContext().Database.ExecuteSqlCommand("EXEC BlockUser @UserID,@Flag,@BlockedDate,@tillDate,@Details", ProcParam.ToArray()); ;
         }
-        public void UpdatePassword(UserModel loUserData)
-        {            
-            List<SqlParameter> ProcParam = new List<SqlParameter>();
+        //public Boolean IsValidPassword(string lsUserName, string lsPassword)
+        //{
+        //    EducationDataContext sqldb = new EducationDataContext();
+        //    List<SqlParameter> ProcParam = new List<SqlParameter>();
 
-            ProcParam.Add(new SqlParameter("Email", loUserData.Email.handleDBNull()));
-            ProcParam.Add(new SqlParameter("UPassword", loUserData.UPassword.handleDBNull()));
-            new EducationDataContext().Database.ExecuteSqlCommand("EXEC UpdatePassword @Email,@UPassword", ProcParam.ToArray());            
-        }
+        //    ProcParam.Add(new SqlParameter("UserName", lsUserName));
+        //    ProcParam.Add(new SqlParameter("Password", lsPassword));
+
+        //    var u = new EducationDataContext().Database.SqlQuery<string>("EXEC GetForValidation @UserName @Password", ProcParam.ToArray()).FirstOrDefault();
+        //    if (u == null)
+        //        return false;
+        //    else
+        //        return true;
+        //}
         public List<UserProfileModel> UserProfile(decimal UserID)
         {             
             List<SqlParameter> ProcParam = new List<SqlParameter>();

@@ -22,7 +22,5 @@ namespace OnlineEducation.Models
         public decimal BlockID { get; set; }
         public string ErrorMessage { get; set; }
         public string FullName { get; set; }
-        public string ProfImg { get; set; }
-        public List<UserModel> loUserModel = new List<UserModel>();
     }
 }
